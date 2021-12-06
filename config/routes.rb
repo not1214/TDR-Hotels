@@ -42,10 +42,15 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]  #ホテル：お気に入り = １：Nだからネスト
     end
 
+    #検索機能
+    get "/hotel_search" => "searches#hotel_search"
+    get "/category_search" => "searches#category_search"
+    get "/area_search" => "searches#area_search"
+
     #URLがusernameになるようにルーティング設定
     get "/mypage" => "members#mypage"
     get "/:username" => "members#show"
-    get "/:ussername/edit" => "members#edit"
+    get "/:username/edit" => "members#edit"
     get "/:username" => "members#update"
     get "/:username/unsubscribe" => "members#unsubscribe"
     patch "/:username" => "members#withdraw"
@@ -60,11 +65,6 @@ Rails.application.routes.draw do
         get "complete"
       end
     end
-
-    #検索機能
-    get "/hotel_search" => "searches#hotel_search"
-    get "/category_search" => "searches#category_search"
-    get "/area_search" => "searches#area_search"
 
   end
 
