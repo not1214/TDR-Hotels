@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_111354) do
+ActiveRecord::Schema.define(version: 2021_12_06_153101) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,47 @@ ActiveRecord::Schema.define(version: 2021_12_06_111354) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "area_name", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "category_name", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "subject"
+    t.text "message", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "hotel_id", null: false
+    t.integer "member_id", null: false
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.integer "area_id", null: false
+    t.string "hotel_name", null: false
+    t.string "price_range", null: false
+    t.text "caption", null: false
+    t.text "website", null: false
+    t.string "address", null: false
+    t.string "hotel_image_id", null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -43,6 +84,32 @@ ActiveRecord::Schema.define(version: 2021_12_06_111354) do
     t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_id", null: false
+    t.string "image_name", null: false
+  end
+
+  create_table "review_comments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "review_id", null: false
+    t.integer "member_id", null: false
+    t.text "comment", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "hotel_id", null: false
+    t.integer "member_id", null: false
+    t.string "title", null: false
+    t.text "content"
+    t.string "review_image_id"
+    t.float "rate", null: false
   end
 
 end
