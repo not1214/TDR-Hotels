@@ -31,6 +31,9 @@
 - 家族や友達とテーマパークへ旅行を計画する時
 
 ## 設計書
+[ER図](https://app.diagrams.net/#G1Y1On9v1TzMBoy4NJqH8jymAJbEAVpGY0)  
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1DWH6aDMZGZ4_ypdYnTEJyxlRT6t8j4yzxB_L1Lr-PyQ/edit#gid=1373217982)  
+[アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1dv2XVppqtzi_x8lbnKORowQ-PqxIDoqm5PD7UgYyC8M/edit#gid=1031934256)  
 
 
 ## チャレンジ要素一覧
