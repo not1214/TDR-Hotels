@@ -18,9 +18,19 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+#content {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
 header {
   border-bottom: 2px ridge #6699FF;
   background-color: #EEFFFF;
+  .nav-link {
+    background-color: #FF9933 !important;
+  }
 }
 
 main {
