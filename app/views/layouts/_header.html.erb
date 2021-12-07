@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg" style="height: 130px">
+  <div class="container-fluid">
+
+    <div class="col-md-3">
+      <div class="d-flex align-items-center">
+        <div class="ml-3">
+          <%= link_to "https://www.facebook.com/" do %>
+            <i class="fab fa-facebook-square fa-2x"></i>
+          <% end %>
+        </div>
+        <div class="ml-3">
+          <%= link_to "https://www.twitter.com/" do %>
+            <i class="fab fa-twitter-square fa-2x"></i>
+          <% end %>
+        </div>
+        <div class="ml-3">
+          <%= link_to "https://www.instagram.com/" do %>
+            <i class="fab fa-instagram-square fa-2x"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 d-flex flex-column">
+      <div class="mx-auto"><a class="logo" href="/"><img src="/assets/uhs_logo.png" width="150px" height="60px"></a></div>
+      <div>
+        <ul class="nav nav-tabs mt-2 justify-content-center">
+        <!--会員がログインした場合-->
+        <% if member_signed_in? %>
+          <li class="nav-items"><%= link_to "MY PAGE", mypage_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "HOTEL", hotels_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "RANKING", ranking_hotels_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "GALLERY", pictures_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "LOG OUT", destroy_member_session_path, class: "nav-link active" %></li>
+        <!--管理者がログインした場合-->
+        <% elsif admin_signed_in? %>
+          <li class="nav-items"><%= link_to "HOTEL", admin_hotels_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "CATEGORY", admin_categories_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "AREA", admin_areas_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "MEMBER", admin_members_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "GALLERY", admin_pictures_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "LOG OUT", destroy_admin_session_path, class: "nav-link active" %></li>
+        <!--ログインしていない場合-->
+        <% else %>
+          <li class="nav-items"><%= link_to "TOP", root_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ABOUT", about_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "SIGN UP", new_member_registration_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "LOG IN", new_member_session_path, class: "nav-link active" %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3 align-items-center">
+      <form class="form-inline">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button class="input-group-text fas fa-search" style="background-color: #6699FF" id="hotel" type="submit"></button>
+        </div>
+      <input type="text" class="form-control" placeholder="ホテル名で検索" aria-label="Hotel" aria-describedby="hotel">
+    </div>
+    </div>
+  </div>
+</nav>

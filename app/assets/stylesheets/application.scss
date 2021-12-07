@@ -17,3 +17,21 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+header {
+  border-bottom: 2px ridge #6699FF;
+  background-color: #EEFFFF;
+}
+
+main {
+  margin: 25px 0;
+}
+
+footer {
+  border-top: 2px ridge #6699FF;
+  background-color: #EEFFFF;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
