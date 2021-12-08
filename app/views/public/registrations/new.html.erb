@@ -3,10 +3,10 @@
     <h2 style="border-bottom: 2px solid #FF9933">新規会員登録</h2>
   </div>
 
-  <div class="row justify-content-center">
-    <div class="col-md-auto">
-    <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
-      <%= render "public/shared/error_messages", resource: resource %>
+  <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
+  <div class="row">
+  　<div class="mx-auto">
+    　<%= render "public/shared/error_messages", resource: resource %>
 
       <table class="table table-borderless">
         <tr>
@@ -63,7 +63,7 @@
   <% end %>
 
   <div class="row justify-content-center mt-4">
-    <h4>既に登録済みの方</h4>
+    <h4 style="border-bottom: 2px solid #FF9933">既に登録済みの方</h4>
   </div>
 
   <div class="row justify-content-center">
