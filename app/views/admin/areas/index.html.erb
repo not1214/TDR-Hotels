@@ -1,2 +1,40 @@
-<h1>Admin::Areas#index</h1>
-<p>Find me in app/views/admin/areas/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">エリア一覧＆登録</h3>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+    <%= form_with model: @area, url: admin_areas_path, local: true do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <th width="150">エリア名</th>
+        <td width="300"><%= f.text_field :area_name, autofocus: true, autocomplete: "area_name", class: "form-control" %></td>
+        <td><%= f.submit "登録", class: "btn btn-success" %></td>
+      </tr>
+    <% end %>
+    </table>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th width="400" style="background-color: #EEFFFF">エリア名</th>
+          <td width="150" style="background-color: #EEFFFF"></td>
+        </tr>
+      <% @areas.each do |area| %>
+        <tr>
+          <td><%= area.area_name %></td>
+          <td class="text-center">
+            <%= link_to "編集", edit_admin_area_path(area), class: "btn btn-primary btn-small" %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+
+    </div>
+  </div>
+

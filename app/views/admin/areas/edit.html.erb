@@ -1,2 +1,18 @@
-<h1>Admin::Areas#edit</h1>
-<p>Find me in app/views/admin/areas/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">エリア編集</h3>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+    <%= form_with model: @area, url: admin_area_path(@area), local: true do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <th width="150">エリア名</th>
+        <td width="300"><%= f.text_field :area_name, autofocus: true, autocomplete: "area_name", class: "form-control" %></td>
+        <td><%= f.submit "変更", class: "btn btn-success" %></td>
+      </tr>
+    <% end %>
+    </table>
+    </div>
+  </div>

@@ -22,15 +22,15 @@
 
       <table class="table table-bordered table-striped">
         <tr>
-          <th width="400">カテゴリー名</th>
-          <td width="150"></td>
+          <th width="400" style="background-color: #EEFFFF">カテゴリー名</th>
+          <td width="150" style="background-color: #EEFFFF"></td>
         </tr>
       <% @categories.each do |category| %>
         <tr>
           <td><%= category.category_name %></td>
-          <td>
-            <%= link_to "編集", edit_admin_category_path(category), class: "btn btn-primary btn-small" %>
-            <%= link_to "削除", admin_category_path(category), class: "btn btn-danger btn-small ml-1" %>
+          <td class="text-center">
+            <%= link_to "編集", edit_admin_category_path(category), class: "btn btn-primary small btn-sm" %>
+            <%= link_to "削除", admin_category_path(category), method: :delete, data: { confirm: "カテゴリを削除してよろしいですか?" }, class: "btn btn-danger btn-sm ml-1" %>
           </td>
         </tr>
       <% end %>
