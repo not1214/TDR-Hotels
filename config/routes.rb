@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :categories, only: [:index, :create, :edit, :update]
+    resources :categories, only: [:index, :create, :edit, :update, :destroy]
     resources :areas, only: [:index, :create, :edit, :update]
     resources :members, only: [:index, :show, :edit, :update]
     resources :pictures, only: [:index, :new, :create, :destroy]

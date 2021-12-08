@@ -1,1 +1,40 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">カテゴリー一覧＆登録</h3>
+  </div>
 
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+    <%= form_with model: @category, url: admin_categories_path, local: true do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <th width="150">カテゴリー名</th>
+        <td width="300"><%= f.text_field :category_name, autofocus: true, autocomplete: "category_name", class: "form-control" %></td>
+        <td><%= f.submit "登録", class: "btn btn-success" %></td>
+      </tr>
+    <% end %>
+    </table>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th width="400">カテゴリー名</th>
+          <td width="150"></td>
+        </tr>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.category_name %></td>
+          <td>
+            <%= link_to "編集", edit_admin_category_path(category), class: "btn btn-primary btn-small" %>
+            <%= link_to "削除", admin_category_path(category), class: "btn btn-danger btn-small ml-1" %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+
+    </div>
+  </div>
