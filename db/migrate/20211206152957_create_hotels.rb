@@ -10,7 +10,6 @@ class CreateHotels < ActiveRecord::Migration[5.2]
       t.text :caption, null: false
       t.text :website, null: false
       t.string :address, null: false
-      t.string :hotel_image_id, null: false
     end
   end
 end

@@ -1,9 +1,12 @@
 class Hotel < ApplicationRecord
-
-  attachment :hotel_image
-
+  
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :hotel_images, dependent: :destroy
+  accepts_attachments_for :hotel_images, attachment: :image
   belongs_to :category
   belongs_to :area
 
@@ -14,6 +17,5 @@ class Hotel < ApplicationRecord
   validates :caption, presence: true
   validates :website, presence: true
   validates :address, presence: true
-  validates :hotel_image, presence: true
 
 end

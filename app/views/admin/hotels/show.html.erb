@@ -1,2 +1,85 @@
-<h1>Admin::Hotels#show</h1>
-<p>Find me in app/views/admin/hotels/show.html.erb</p>
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @hotel.latitude %>, lng: <%= @hotel.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @hotel.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap"></script>
+
+
+<div class="container-fluid">
+
+  <div class="row justify-content-center">
+    <h3 style="border-bottom: 2px solid #FF9933"><%= @hotel.hotel_name %></h3>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col text-center">
+      <% @hotel.hotel_images.each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 600, 300 %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-3 offset-md-1" id="map"></div>
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <tr>
+          <th width="150">ホームページ</th>
+          <td><%= text_url_to_link(h(@hotel.website)).html_safe %></td>
+        </tr>
+        <tr>
+          <th>カテゴリー</th>
+          <td><%= @hotel.category.category_name %></td>
+        </tr>
+        <tr>
+          <th>エリア</th>
+          <td><%= @hotel.area.area_name %></td>
+        </tr>
+        <tr>
+          <th>価格帯</th>
+          <td><%= @hotel.price_range %></td>
+        </tr>
+        <tr>
+          <th>特徴</th>
+          <td class="text-break"><%= @hotel.caption %></td>
+        </tr>
+        <tr>
+          <th>評価(平均)</th>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-5 mx-auto text-center">
+      <%= link_to "レビューを閲覧する", admin_hotel_reviews_path(@hotel), class: "btn btn-primary" %>
+      <%= link_to "情報を編集する", edit_admin_hotel_path(@hotel), class: "btn btn-primary ml-3" %>
+    </div>
+  </div>
+
+</div>

@@ -70,3 +70,5 @@ gem "refile", require: "refile/rails", github: 'manfe/refile' #画像投稿用ge
 gem "refile-mini_magick" #画像加工用gem
 gem 'kaminari','~> 1.2.1' #ページネーション
 gem 'dotenv-rails' #環境変数化
+gem "geocoder"
+gem "gon"

@@ -1,2 +1,44 @@
-<h1>Admin::Hotels#new</h1>
-<p>Find me in app/views/admin/hotels/new.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">ホテル情報登録</h3>
+  </div>
+
+  <%= form_with model: @hotel, url: admin_hotels_path, local: true do |f| %>
+  <div class="row justify-content-center">
+    <%= f.label :"ホテル画像(複数可)", class: "col-md-2 font-weight-bold" %>
+    <%= f.attachment_field :hotel_images_images, multiple: true, class: "col-md-4" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"ホテル名", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_field :hotel_name, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"ホームページ", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_field :website, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"カテゴリ", class: "col-md-2 font-weight-bold" %>
+    <%= f.collection_select :category_id, @categories, :id, :category_name, {prompt: "選択してください"}, {class: "col-md-4 form-control"} %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"エリア", class: "col-md-2 font-weight-bold" %>
+    <%= f.collection_select :area_id, @areas, :id, :area_name, {prompt: "選択してください"}, {class: "col-md-4 form-control"} %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"価格帯", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_field :price_range, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"特徴", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_area :caption, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"住所", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_field :address, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.submit "登録", class: "col-md-1 btn btn-success" %>
+  </div>
+  <% end %>
+
+</div>

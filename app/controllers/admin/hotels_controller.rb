@@ -2,11 +2,14 @@ class Admin::HotelsController < ApplicationController
   def index
     @hotels = Hotel.all
     @categories = Category.all
-    @areas = Areas.all
+    @areas = Area.all
   end
 
   def new
     @hotel = Hotel.new
+    @hotel.hotel_images.build
+    @categories = Category.all
+    @areas = Area.all
   end
 
   def create
@@ -26,6 +29,9 @@ class Admin::HotelsController < ApplicationController
 
   def edit
     @hotel = Hotel.find(params[:id])
+    @hotel.hotel_images.all
+    @categories = Category.all
+    @areas = Area.all
   end
 
   def update
@@ -41,8 +47,8 @@ class Admin::HotelsController < ApplicationController
 
   private
 
-    def hotel_params
-      params.require(:hotel).permit(:category_id, :area_id, :hotel_name, :price_range, :caption, :caption, :address , :hotel_image)
-    end
+  def hotel_params
+    params.require(:hotel).permit(:category_id, :area_id, :hotel_name, :price_range,:website, :caption, :address ,:latitude, :longitude, hotel_images_images: [])
+  end
 
 end
