@@ -3,29 +3,29 @@
     <h3 style="border-bottom: 2px solid #FF9933">お問い合わせ</h3>
   </div>
 
-  <%= form_with model: @contact, url: confirm_contacts_path, local: true do |f| %>
+　 <%= form_with model: @contact, url: confirm_contacts_path, local: true do |f| %>
   <div class="row justify-content-center">
-    <%= f.label :"お名前*", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"お名前*", class: "col-md-3 font-weight-bold offset-md-1" %>
     <%= f.text_field :name, autocomplete: true, autofocus: true, class: 'col-md-4 form-control' %>
   </div>
 
   <div class="row justify-content-center mt-2">
-    <%= f.label :"返信先メールアドレス*", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"返信先メールアドレス*", class: "col-md-3 font-weight-bold offset-md-1" %>
     <%= f.email_field :email, autocomplete: true, autofocus: true, class: 'col-md-4 form-control' %>
   </div>
 
   <div class="row justify-content-center mt-2">
-    <%= f.label :"件名", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"件名", class: "col-md-3 font-weight-bold offset-md-1" %>
     <%= f.text_field :subject, autocomplete: true, autofocus: true, class: 'col-md-4 form-control' %>
   </div>
 
   <div class="row justify-content-center mt-2">
-    <%= f.label :"メッセージ*", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"メッセージ*", class: "col-md-3 font-weight-bold offset-md-1" %>
     <%= f.text_area :message, size: '10x10', class: 'col-md-4 form-control' %>
   </div>
 
   <div class="row justify-content-center mt-3">
-    <%= f.submit '入力内容確認', class: "col-md-1 btn btn-success" %>
+    <%= f.submit '入力内容確認', class: "col-md-auto btn btn-success" %>
   </div>
   <% end %>
 

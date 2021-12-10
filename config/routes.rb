@@ -60,7 +60,7 @@ Rails.application.routes.draw do
     #お問い合わせ機能
     resources :contacts, only: [:new, :create] do
       collection do
-        get "confirm"
+        post "confirm"
         post "back"
         get "complete"
       end

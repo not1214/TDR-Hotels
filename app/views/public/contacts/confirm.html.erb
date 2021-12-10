@@ -1,16 +1,44 @@
-  <div class="form-group">
-    お名前：<%= @contact.name %>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">お問い合わせ確認</h3>
   </div>
 
-  <div class="form-group">
+  <div class="row justify-content-center">
+    <div class="col-md-3 font-weight-bold offset-md-1">お名前</div>
+    <div class="col-md-4"><%= @contact.name %></div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :"件名" %>
-    <%= f.text_field :subject, autocomplete: true, autofocus: true, class: 'form-control' %>
+  <div class="row justify-content-center mt-2">
+    <div class="col-md-3 font-weight-bold offset-md-1">返信先メールアドレス</div>
+    <div class="col-md-4"><%= @contact.email %></div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :"メッセージ*" %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+  <div class="row justify-content-center mt-2">
+    <div class="col-md-3 font-weight-bold offset-md-1">件名</div>
+    <div class="col-md-4"><%= @contact.subject %></div>
   </div>
+
+  <div class="row justify-content-center mt-2">
+    <div class="col-md-3 font-weight-bold offset-md-1">メッセージ</div>
+    <div class="col-md-4 text-break"><%= @contact.message %></div>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+  <%= form_with model: @contact, url: contacts_path, local: true do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :subject %>
+    <%= f.hidden_field :message %>
+    <%= f.submit '送信する', class: "col-md-auto btn btn-success" %>
+  <% end %>
+
+  <%= form_with model: @contact, url: back_contacts_path, local: true do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :subject %>
+    <%= f.hidden_field :message %>
+    <%= f.submit "入力画面に戻る", class: "col-md-auto offset-md-1 btn btn-success" %>
+  <% end %>
+  </div>
+
+</div>
