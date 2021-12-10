@@ -1,2 +1,16 @@
-<h1>Public::Contacts#confirm</h1>
-<p>Find me in app/views/public/contacts/confirm.html.erb</p>
+  <div class="form-group">
+    お名前：<%= @contact.name %>
+  </div>
+
+  <div class="form-group">
+  </div>
+
+  <div class="form-group">
+    <%= f.label :"件名" %>
+    <%= f.text_field :subject, autocomplete: true, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :"メッセージ*" %>
+    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+  </div>

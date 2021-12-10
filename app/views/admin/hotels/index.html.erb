@@ -18,18 +18,20 @@
         <%= link_to "ホテルを登録する", new_admin_hotel_path, class: "btn btn-info" %>
       </div>
 
-      <div class="d-flex flex-wrap" width="250">
+      <div class="d-flex flex-wrap">
         <% @hotels.each do |hotel| %>
-        <div class="d-flex flex-column flex-fill mb-2">
+        <div class="d-flex flex-column mb-3 mr-3">
           <div>
-            <% hotel.hotel_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, :fill, 220, 165 %>
+            <%= link_to admin_hotel_path(hotel) do %>
+              <% hotel.hotel_images.first(1).each do |image| %>
+                <%= attachment_image_tag image, :image, :fill, 230, 200 %>
+              <% end %>
             <% end %>
           </div>
-          <div style="font-size: 14px"><strong><%= hotel.hotel_name %></strong></div>
-          <div style="font-size: 12px">カテゴリー名：<%= hotel.category.category_name %></div>
-          <div style="font-size: 12px">エリア名：<%= hotel.area.area_name %></div>
-          <div style="font-size: 12px">評価：</div>
+          <div style="font-size: 13px" width="250"><strong><%= hotel.hotel_name %></strong></div>
+          <div style="font-size: 11px">カテゴリー名：<%= hotel.category.category_name %></div>
+          <div style="font-size: 11px">エリア名：<%= hotel.area.area_name %></div>
+          <div style="font-size: 11px">評価：</div>
         </div>
         <% end %>
       </div>
