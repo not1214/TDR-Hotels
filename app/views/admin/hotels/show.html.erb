@@ -25,9 +25,6 @@
   }
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap"></script>
-
-
 <div class="container-fluid">
 
   <div class="row justify-content-center">
@@ -35,10 +32,12 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col text-center">
+    <div class="col ">
+      <div class="slider" width="600" height="320">
       <% @hotel.hotel_images.each do |image| %>
         <%= attachment_image_tag image, :image, :fill, 600, 300 %>
       <% end %>
+      </div>
     </div>
 
   </div>
