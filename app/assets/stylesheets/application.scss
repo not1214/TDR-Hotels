@@ -60,3 +60,24 @@ footer {
   height: 300px;
   margin: 0 auto;
 }
+
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "★" !important;
+      font-size: 12px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}
+
+.slick-prev:before {
+  color: #000 !important;
+  font-size: 14px !important;
+}
+
+.slick-next:before {
+  color: #000 !important;
+  font-size: 14px !important;
+}

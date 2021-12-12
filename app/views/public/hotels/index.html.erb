@@ -1,2 +1,41 @@
-<h1>Public::Hotels#index</h1>
-<p>Find me in app/views/public/hotels/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">ホテル一覧</h3>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3 d-flex flex-column">
+      <div>
+        <%= render "layouts/category_search", categories: @categories %>
+      </div>
+      <div class="mt-3">
+        <%= render "layouts/area_search", areas: @areas %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="text-right mr-5 mb-2">
+        <%= link_to "ホテルを登録する", new_admin_hotel_path, class: "btn btn-info" %>
+      </div>
+
+      <div class="d-flex flex-wrap">
+        <% @hotels.each do |hotel| %>
+        <div class="d-flex flex-column mb-3 mr-3">
+          <div>
+            <%= link_to hotel_path(hotel) do %>
+              <% hotel.hotel_images.first(1).each do |image| %>
+                <%= attachment_image_tag image, :image, :fill, 230, 200 %>
+              <% end %>
+            <% end %>
+          </div>
+          <div style="font-size: 13px" width="250"><strong><%= hotel.hotel_name %></strong></div>
+          <div style="font-size: 11px">カテゴリー名：<%= hotel.category.category_name %></div>
+          <div style="font-size: 11px">エリア名：<%= hotel.area.area_name %></div>
+          <div style="font-size: 11px">評価：</div>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

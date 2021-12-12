@@ -27,7 +27,9 @@ document.addEventListener("turbolinks:load", function () {
       $('.slider').slick({
           dots: true,
           autoplay: true,
-          autoplaySpeed: 1000,
+          autoplaySpeed: 3000,
+          arrows: true,
+          infinite: true,
       });
   });
 });
