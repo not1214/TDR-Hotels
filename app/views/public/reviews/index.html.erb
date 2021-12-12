@@ -1,2 +1,14 @@
-<h1>Public::Reviews#index</h1>
-<p>Find me in app/views/public/reviews/index.html.erb</p>
+<%= render "layouts/map", hotel: @hotel %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <% @hotel.hotel_images.first(1).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 230, 150 %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <h5><span style="border-bottom: 2px solid #FF9933"><%= @hotel.hotel_name %>のレビュー一覧</span></h5>
+    </div>
+  </div>
+</div>

@@ -1,23 +1,23 @@
 class Public::ReviewsController < ApplicationController
   def index
-    @hotel = Hotel.find(params[:id])
     @reviews = Review.all
+    @hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def show
-    @hotel = Hotel.find(params[:id])
+    @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.find(params[:id])
   end
 
   def new
-    @hotel = Hotel.find(params[:id])
+    @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.new
   end
 
   def create
-    @hotel = Hotel.find(params[:id])
+    @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
-    @review.hotel_id = hotel
+    @review.hotel_id = @hotel
     if @review.save
       flash[:notice] = "レビューを投稿しました。"
       redirect_to hotel_reviews_path(@review)
