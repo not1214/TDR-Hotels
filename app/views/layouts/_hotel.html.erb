@@ -1,0 +1,30 @@
+<div>
+  <p class="btn btn-primary btn-sm" style="font-size: 11px">お気に入りに追加する</p>
+</div>
+<div>
+<% hotel.hotel_images.first(1).each do |image| %>
+  <%= attachment_image_tag image, :image, :fill, 230, 150 %>
+<% end %>
+</div>
+<table class="table table-bordered table-sm mt-2" style="font-size: 9px">
+  <tr>
+    <th>ホームページ</th>
+    <td><%= text_url_to_link(h(hotel.website)).html_safe %></td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th>
+    <td><%= hotel.category.category_name %></td>
+  </tr>
+  <tr>
+    <th>エリア</th>
+    <td><%= hotel.area.area_name %></td>
+  </tr>
+  <tr>
+    <th>価格帯</th>
+    <td><%= hotel.price_range %></td>
+  </tr>
+  <tr>
+    <th>評価(平均)</th>
+    <td></td>
+  </tr>
+</table>

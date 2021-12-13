@@ -18,7 +18,8 @@
   </div>
 
   <div class="row justify-content-center mt-3">
-    <div class="col-md-3 offset-md-1" id="map"></div>
+    <div class="col-md-3 offset-md-1" id="map" height="300" width="30%"></div>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap"></script>
     <div class="col-md-6">
       <table class="table table-bordered">
         <tr>

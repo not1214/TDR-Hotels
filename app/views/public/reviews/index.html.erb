@@ -3,37 +3,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3">
-      <div>
-      <% @hotel.hotel_images.first(1).each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 230, 150 %>
-      <% end %>
-      </div>
-      <table class="table table-bordered table-sm mt-2" style="font-size: 9px">
-        <tr>
-          <th>ホームページ</th>
-          <td><%= text_url_to_link(h(@hotel.website)).html_safe %></td>
-        </tr>
-        <tr>
-          <th>カテゴリー</th>
-          <td><%= @hotel.category.category_name %></td>
-        </tr>
-        <tr>
-          <th>エリア</th>
-          <td><%= @hotel.area.area_name %></td>
-        </tr>
-        <tr>
-          <th>価格帯</th>
-          <td><%= @hotel.price_range %></td>
-        </tr>
-        <tr>
-          <th>評価(平均)</th>
-          <td></td>
-        </tr>
-      </table>
+      <%= render "layouts/hotel", hotel: @hotel %>
     </div>
     <div class="col-md-9">
       <h5><span style="border-bottom: 2px solid #FF9933"><%= @hotel.hotel_name %>のレビュー一覧</span></h5>
-      <div class=""><%= attachment_image_tag :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %></div>
+      <% @reviews.each do |review| %>
+      <div>
+        <%= link_to mypage_path(review.member) do %>
+          <%= attachment_image_tag review.member, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %>
+        <p class="ml-3"><%= review.member.username %></p>
+        <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
