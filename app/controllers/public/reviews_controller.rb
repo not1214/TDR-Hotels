@@ -17,10 +17,10 @@ class Public::ReviewsController < ApplicationController
   def create
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
-    @review.hotel_id = @hotel
+    @review.hotel_id = @hotel.id
     if @review.save
       flash[:notice] = "レビューを投稿しました。"
-      redirect_to hotel_reviews_path(@review)
+      redirect_to hotel_reviews_path(@hotel)
     else
       flash[:alert] = "レビューを投稿できませんでした。もう一度入力してください。"
       render :new

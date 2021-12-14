@@ -47,14 +47,6 @@ Rails.application.routes.draw do
     get "/category_search" => "searches#category_search"
     get "/area_search" => "searches#area_search"
 
-    #URLがusernameになるようにルーティング設定
-    get "/mypage" => "members#mypage"
-    get "/:username" => "members#show"
-    get "/:username/edit" => "members#edit"
-    get "/:username" => "members#update"
-    get "/:username/unsubscribe" => "members#unsubscribe"
-    patch "/:username" => "members#withdraw"
-
     resources :pictures, only: [:index]
 
     #お問い合わせ機能
@@ -65,6 +57,14 @@ Rails.application.routes.draw do
         get "complete"
       end
     end
+
+    #URLがusernameになるようにルーティング設定
+    get "/mypage" => "members#mypage"
+    get "/:username" => "members#show"
+    get "/:username/edit" => "members#edit"
+    patch "/:username" => "members#update"
+    get "/:username/unsubscribe" => "members#unsubscribe"
+    patch "/:username" => "members#withdraw"
 
   end
 

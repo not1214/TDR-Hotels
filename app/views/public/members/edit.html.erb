@@ -1,2 +1,24 @@
-<h1>Public::Members#edit</h1>
-<p>Find me in app/views/public/members/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">会員情報編集</h3>
+  </div>
+
+  <%= form_with model: @member, url: "/#{current_member.username}", local: true do |f| %>
+  <div class="row justify-content-center">
+    <%= f.label :"プロフィール画像", class: "col-md-2 font-weight-bold" %>
+    <%= f.attachment_field :profile_image, class: "col-md-4" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"ユーザー名", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_field :username, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-2">
+    <%= f.label :"紹介文", class: "col-md-2 font-weight-bold" %>
+    <%= f.text_area :introduction, autocomplete: true, class: "col-md-4 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.submit "編集", class: "col-md-1 btn btn-success btn-sm" %>
+    <%= link_to "退会する", "/#{current_member.username}/unsubscribe", class: "col-md-1 btn btn-danger btn-sm ml-3" %>
+  </div>
+  <% end %>
+</div>

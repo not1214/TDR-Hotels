@@ -1,2 +1,20 @@
-<h1>Public::Members#show</h1>
-<p>Find me in app/views/public/members/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <%= attachment_image_tag @member, :profile_image, :fill, 100, 75, fallback: "no-image-icon.jpg" %>
+      <table class="table table-bordered table-sm mt-2 text-left" style="font-size: 9px">
+        <tr>
+          <th width="30%">ユーザー名</th>
+          <td><%= @member.username %></td>
+        </tr>
+        <tr>
+          <th>紹介文</th>
+          <td class="text-break"><%= @member.introduction %></td>
+        </tr>
+      </table>
+      <% if @member == current_member %>
+      <p><%= link_to "編集する", "/#{current_member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

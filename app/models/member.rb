@@ -3,22 +3,26 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :review_comments, dependent: :destroy
-  
-  validates :username, presence: true
+
+  validates :username, presence: true, uniqueness: true
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :phone_number, presence: true
-  
+
   attachment :profile_image
 
   def full_name
     last_name + first_name
   end
   
+  def to_param
+    name
+  end
+
 end
