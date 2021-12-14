@@ -18,6 +18,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body {
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+}
+
 #content {
   min-height: 100vh;
   position: relative;
@@ -75,4 +79,26 @@ footer {
 .slick-next:before {
   color: #000 !important;
   font-size: 14px !important;
+}
+
+.balloon {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
 }
