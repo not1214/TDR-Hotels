@@ -7,6 +7,7 @@ class Public::ReviewsController < ApplicationController
   def show
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.find(params[:id])
+    @review_comment = ReviewComment.new
   end
 
   def new
