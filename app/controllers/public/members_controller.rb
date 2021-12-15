@@ -5,12 +5,12 @@ class Public::MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find_by(username: params[:username])
+    @member = current_member
     @reviews = @member.reviews
   end
 
   def edit
-    @member = Member.find_by(username: params[:username])
+    @member = current_member
     if @member != current_member
       flash[:alert] = "不正なアクセスです。"
       redirect_to "/#{@member.username}"
@@ -18,7 +18,7 @@ class Public::MembersController < ApplicationController
   end
 
   def update
-    @member = Member.find_by(username: params[:username])
+    @member = current_member
     if current_member.update(member_params)
       flash[:notice] = "会員情報を更新しました。"
       redirect_to "/#{current_member.username}"
@@ -32,6 +32,7 @@ class Public::MembersController < ApplicationController
   end
 
   def withdraw
+    @member = current_member
     @member.update(is_deleted: true)
     reset_session
     redirect_to root_path

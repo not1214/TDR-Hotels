@@ -20,9 +20,5 @@ class Member < ApplicationRecord
   def full_name
     last_name + first_name
   end
-  
-  def to_param
-    name
-  end
 
 end

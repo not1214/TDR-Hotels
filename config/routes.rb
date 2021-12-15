@@ -64,7 +64,7 @@ Rails.application.routes.draw do
     get "/:username/edit" => "members#edit"
     patch "/:username" => "members#update"
     get "/:username/unsubscribe" => "members#unsubscribe"
-    patch "/:username" => "members#withdraw"
+    patch "/:username/withdraw" => "members#withdraw", as: "withdraw_member"
 
   end
 
