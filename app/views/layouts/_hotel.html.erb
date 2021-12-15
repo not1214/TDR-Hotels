@@ -1,7 +1,4 @@
-<div>
-  <p class="btn btn-primary btn-sm" style="font-size: 11px">お気に入りに追加する</p>
-</div>
-<div>
+<div class="mt-2">
 <% hotel.hotel_images.first(1).each do |image| %>
   <%= attachment_image_tag image, :image, :fill, 230, 150 %>
 <% end %>

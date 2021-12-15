@@ -1,8 +1,8 @@
 class Hotel < ApplicationRecord
-  
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-  
+
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :hotel_images, dependent: :destroy

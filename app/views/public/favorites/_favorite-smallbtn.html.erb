@@ -1,0 +1,9 @@
+<% if Favorite.exists?(member_id: current_member, hotel_id: hotel.id) %>
+  <div>
+    <%= link_to "お気に入りから外す", hotel_favorites_path(hotel), method: :delete, remote: true, class: "btn btn-outline-warning btn-sm", style: "font-size: 11px" %>
+  </div>
+  <% else %>
+  <div>
+    <%= link_to "お気に入りに追加", hotel_favorites_path(hotel), method: :post, remote: true, class: "btn btn-warning btn-sm", style: "font-size: 11px" %>
+  </div>
+<% end %>

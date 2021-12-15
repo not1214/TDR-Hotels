@@ -3,7 +3,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 text-center">
+      <div id="favorite_on_review_<%= @hotel.id %>">
+        <%= render "public/favorites/favorite-smallbtn", hotel: @hotel %>
+      </div>
+
       <%= render "layouts/hotel", hotel: @hotel %>
+
     </div>
 
     <div class="col-md-9">
