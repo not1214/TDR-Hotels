@@ -1,7 +1,7 @@
 class Public::ReviewsController < ApplicationController
   def index
-    @reviews = Review.all
     @hotel = Hotel.find_by(id: params[:hotel_id])
+    @reviews = Review.where(hotel_id: params[:hotel_id])
   end
 
   def show
@@ -28,14 +28,16 @@ class Public::ReviewsController < ApplicationController
   end
 
   def edit
+    @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.find(params[:id])
   end
 
-  def updated
+  def update
+    @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.find(params[:id])
     if @review.update(review_params)
       flash[:notice] = "レビューを編集しました。"
-      redirect_to hotel_review_path
+      redirect_to hotel_review_path(@hotel,@review)
     else
       flash[:alert] = "レビューを編集できませんでした。再度入力してください。"
       render :edit
@@ -43,7 +45,7 @@ class Public::ReviewsController < ApplicationController
   end
 
   def destroy
-    @hotel = Hotel.find(params[:id])
+    @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.find(params[:id])
     @review.destroy
     flash[:notice] = "レビューを削除しました。"
