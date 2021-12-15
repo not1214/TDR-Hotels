@@ -85,8 +85,7 @@ footer {
   position: relative;
   margin: 0 0 10px 30px;
   padding: 7px 10px;
-  min-width: 120px;
-  max-width: 100%;
+  width: 100%;
   color: #555;
   font-size: 16px;
   background: #e0edff;
@@ -95,14 +94,31 @@ footer {
 .balloon:before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: -30px;
   margin-top: -15px;
   border: 15px solid transparent;
   border-right: 15px solid #e0edff;
 }
 
-.star-rate {
-  width: 10px;
-  height: 10px;
+
+.balloon-circle {
+  position: relative;
+  padding: 5px 5px 5px 15px;
+  max-width: 100%;
+  background-color: #fff3ad;
+  border-radius: 10px;         /* 角丸を指定 */
+}
+
+/* 三角アイコン - 普通の吹き出し */
+.balloon-circle:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -10px;
+  top: 5px;
+  border-right: 15px solid #fff3ad;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
 }
