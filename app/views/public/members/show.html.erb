@@ -36,6 +36,11 @@
               <% end %>
             </div>
             <div class="row mb-2">
+              <div class="col-md-auto pt-1" style="font-size:15px">
+                <strong><%= link_to review.hotel.hotel_name, hotel_path(review.hotel) %></strong>
+              </div>
+            </div>
+            <div class="row mb-2">
               <div class="col-md-auto pt-1" style="font-size:11px">評価：</div>
               <div id="star-rate-<%= review.id %>" style="line-height: 6px"></div>
                 <script>
