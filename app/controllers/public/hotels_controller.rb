@@ -10,6 +10,7 @@ class Public::HotelsController < ApplicationController
   end
 
   def ranking
-    @ranks = Hotel.find(Review.group(:hotel_id).order("avg(rate) desc").limit(5).pluck(:hotel_id))
+    @rate_ranks = Hotel.find(Review.group(:hotel_id).order("avg(rate) desc").limit(5).pluck(:hotel_id))
+    @favorite_ranks = Hotel.find(Favorite.group(:hotel_id).order("count(hotel_id) desc").pluck(:hotel_id))
   end
 end
