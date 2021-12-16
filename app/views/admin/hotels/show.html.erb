@@ -51,9 +51,9 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col-md-5 mx-auto text-center">
-      <%= link_to "レビューを閲覧する", admin_hotel_reviews_path(@hotel), class: "btn btn-primary" %>
-      <%= link_to "情報を編集する", edit_admin_hotel_path(@hotel), class: "btn btn-primary ml-3" %>
+    <div class="col-md-auto mx-auto d-flex">
+      <div><%= link_to "レビューを閲覧する", admin_hotel_reviews_path(@hotel), class: "btn btn-primary" %></div>
+      <div><%= link_to "情報を編集する", edit_admin_hotel_path(@hotel), class: "btn btn-dark ml-2" %></div>
     </div>
   </div>
 

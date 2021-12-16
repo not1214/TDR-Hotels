@@ -31,7 +31,7 @@
                 <div class="row">
                   <p class="col-md-5" style="font-size:11px"><%= review.created_at.strftime('%Y/%m/%d') %></p>
                   <% if review.member_id == current_member.id %>
-                  <div class="col-md-auto">
+                  <div class="col-md-auto ml-auto">
                     <%= link_to "編集", edit_hotel_review_path(@hotel,review), class: "btn btn-primary btn-sm", style: "font-size:10px" %>
                     <%= link_to "削除", hotel_review_path(@hotel,review), method: :delete, data: { confirm: "レビューを削除してもよろしいですか？" }, class: "btn btn-danger btn-sm ml-1", style: "font-size:10px" %>
                   </div>

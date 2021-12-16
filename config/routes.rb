@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  #管理者用deviseのルーティング（/admin/sign_in）
+  devise_for :admin, skip: [:passwords, :registrations,], controllers: {
+    sessions: "admin/sessions"
+  }
+
+  #会員用deviseのルーティング（/members/sign_in）
+  devise_for :members, skip: [:passwords,], controllers: {
+    registrations: "public/registrations",
+    sessions: "public/sessions"
+  }
+
+
   #管理者用ルーティング
   namespace :admin do
 
@@ -14,13 +26,19 @@ Rails.application.routes.draw do
 
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
     resources :areas, only: [:index, :create, :edit, :update]
-    resources :members, only: [:index, :show, :edit, :update]
     resources :pictures, only: [:index, :new, :create, :destroy]
 
     #検索機能
     get "/hotel_search" => "searches#hotel_search"
     get "/category_search" => "searches#category_search"
     get "/area_search" => "searches#area_search"
+
+    #会員のusernameがURLに表示される
+    get "/members" => "members#index"
+    get "/:username" => "members#show"
+    get "/:username/edit" => "members#edit"
+    patch "/:username" => "members#update"
+    patch "/:username/withdraw" => "members#withdraw", as: "withdraw_member"
 
   end
 
@@ -67,16 +85,5 @@ Rails.application.routes.draw do
     patch "/:username/withdraw" => "members#withdraw", as: "withdraw_member"
 
   end
-
-  #管理者用deviseのルーティング（/admin/sign_in）
-  devise_for :admin, skip: [:passwords, :registrations,], controllers: {
-    sessions: "admin/sessions"
-  }
-
-  #会員用deviseのルーティング（/members/sign_in）
-  devise_for :members, skip: [:passwords,], controllers: {
-    registrations: "public/registrations",
-    sessions: "public/sessions"
-  }
 
 end

@@ -1,2 +1,66 @@
-<h1>Admin::Members#show</h1>
-<p>Find me in app/views/admin/members/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <%= attachment_image_tag @member, :profile_image, :fill, 100, 75, fallback: "no-image-icon.jpg" %>
+      <table class="table table-bordered table-sm mt-2 text-left" style="font-size: 9px">
+        <tr>
+          <th width="30%">ユーザー名</th>
+          <td><%= @member.username %></td>
+        </tr>
+        <tr>
+          <th>紹介文</th>
+          <td class="text-break"><%= @member.introduction %></td>
+        </tr>
+      </table>
+      <p><%= link_to "編集する", "/admin/#{@member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>
+    </div>
+
+    <div class="col-md-9">
+      <h5><span style="border-bottom: 2px solid #FF9933"><%= @member.username %>さんの投稿レビュー一覧</span></h5>
+      <% if @reviews.present? %>
+        <% @reviews.each do |review| %>
+        <div class="balloon row mt-3" style="display:">
+          <div class="col-md-2">
+            <%= attachment_image_tag review, :review_image, :fill, 90, 100, fallback: "no_image.jpg" %>
+          </div>
+          <div class="col-md-10">
+            <div class="row">
+              <p class="col-md-5" style="font-size:11px"><%= review.created_at.strftime('%Y/%m/%d') %></p>
+              <div class="col-md-auto ml-auto">
+                <%= link_to "編集", edit_admin_hotel_review_path(review.hotel_id,review), class: "btn btn-primary btn-sm", style: "font-size:10px" %>
+                <%= link_to "削除", admin_hotel_review_path(review.hotel_id,review), method: :delete, data: { confirm: "レビューを削除してもよろしいですか？" }, class: "btn btn-danger btn-sm ml-1", style: "font-size:10px" %>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-auto pt-1" style="font-size:15px">
+                <strong><%= link_to review.hotel.hotel_name, hotel_path(review.hotel) %></strong>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-auto pt-1" style="font-size:11px">評価：</div>
+              <div id="star-rate-<%= review.id %>" style="line-height: 6px"></div>
+                <script>
+                  $(document).ready(function(){
+                    $('#star-rate-<%= review.id %>').empty();
+                      $('#star-rate-<%= review.id %>').raty({
+                        size: 36,
+                        starOff:  '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        half: true,
+                        readOnly: true,
+                        score: <%= review.rate %>,
+                      });
+                  });
+                </script>
+            </div>
+            <h6 style="font-size: 14px"><%= link_to review.title, admin_hotel_review_path(review.hotel_id, review) %></h6>
+            <p class="text-break" style="font-size: 13px"><%= review.content %></p>
+            <div class="text-right" style="font-size: 11px">コメント数：<%= review.review_comments.count %> 件</div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
