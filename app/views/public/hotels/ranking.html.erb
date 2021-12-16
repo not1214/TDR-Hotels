@@ -3,9 +3,9 @@
     <h3 style="border-bottom: 2px solid #FF9933">ホテルランキング</h3>
   </div>
 
-  <div class="row mx-auto">
+  <div class="row justify-content-center">
     <div class="col-md-5">
-      <h5>評価が高いホテル</h5>
+      <h5><span style="border-bottom: 2px solid #FF9933">評価が高いホテル</span></h5>
       <% last_rate = 0 %>
       <% rank = 1 %>
       <% @rate_ranks.each.with_index(1) do |hotel, i|%>
@@ -13,19 +13,19 @@
         <div class="d-flex">
           <div class="d-flex flex-column mt-2">
             <% rank = i %>
-            <div><%= rank %> 位</div>
+            <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
                 <div style="font-size:14px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 200, 150 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
                 <% end %>
               <% end %>
             </div>
           </div>
             <% last_rate = hotel.reviews.average(:rate).to_f.round(1) %>
           <div class="d-flex flex-column ml-2 mt-auto">
-            <div style="font-size:12px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
+            <div style="font-size:12px; border-bottom: 2px solid #007bff">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
           </div>
@@ -34,19 +34,19 @@
         <% else %>
         <div class="d-flex">
           <div class="d-flex flex-column mt-2">
-            <div><%= rank %> 位</div>
+            <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
                 <div style="font-size:14px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 200, 150 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
                 <% end %>
               <% end %>
             </div>
           </div>
             <% last_rate = hotel.reviews.average(:rate).to_f.round(1) %>
           <div class="d-flex flex-column ml-2 mt-auto">
-            <div style="font-size:12px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
+            <div style="font-size:12px; border-bottom: 2px solid #007bff">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
           </div>
@@ -56,7 +56,7 @@
     </div>
 
     <div class="col-md-5">
-      <h5>人気のホテル</h5>
+      <h5><span style="border-bottom: 2px solid #FF9933">人気のホテル</span></h5>
       <% last_favorite = 0 %>
       <% rank = 1 %>
       <% @favorite_ranks.each.with_index(1) do |hotel, i|%>
@@ -64,18 +64,19 @@
         <div class="d-flex">
           <div class="d-flex flex-column mt-2">
             <% rank = i %>
-            <div><%= rank %> 位</div>
+            <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
                 <div style="font-size:14px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 200, 150 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
                 <% end %>
               <% end %>
             </div>
           </div>
             <% last_rate = hotel.favorites.count %>
           <div class="d-flex flex-column ml-2 mt-auto">
+            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">お気に入り：<%= hotel.favorites.count %>　</div>
             <div style="font-size:12px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
@@ -85,18 +86,19 @@
         <% else %>
         <div class="d-flex">
           <div class="d-flex flex-column mt-2">
-            <div><%= rank %> 位</div>
+            <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
                 <div style="font-size:14px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 200, 150 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
                 <% end %>
               <% end %>
             </div>
           </div>
             <% last_favorite = hotel.favorites.count %>
           <div class="d-flex flex-column ml-2 mt-auto">
+            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">お気に入り：<%= hotel.favorites.count %> </span></div>
             <div style="font-size:12px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
