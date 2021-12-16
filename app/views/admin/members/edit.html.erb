@@ -1,2 +1,51 @@
-<h1>Admin::Members#edit</h1>
-<p>Find me in app/views/admin/members/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">会員情報編集</h3>
+  </div>
+
+  <%= form_with model: @member, url: "/admin/#{@member.username}", local: true do |f| %>
+  <div class="row justify-content-center">
+    <%= f.label :"プロフィール画像", class: "col-md-3 font-weight-bold" %>
+    <%= f.attachment_field :profile_image, class: "col-md-5" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"ユーザー名", class: "col-md-3 font-weight-bold" %>
+    <%= f.text_field :username, autocomplete: true, class: "col-md-5 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"紹介文", class: "col-md-3 font-weight-bold" %>
+    <%= f.text_area :introduction, autocomplete: true, class: "col-md-5 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"氏名", class: "col-md-2 font-weight-bold" %>
+    <%= f.label :"(姓)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :last_name, autocomplete: true, class: "col-md-2 form-control" %>
+    <%= f.label :"(名)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :first_name, autocomplete: true, class: "col-md-2 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"フリガナ", class: "col-md-2 font-weight-bold" %>
+    <%= f.label :"(セイ)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :last_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
+    <%= f.label :"(メイ)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :first_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"電話番号(ハイフンなし)", class: "col-md-3 font-weight-bold" %>
+    <%= f.text_field :phone_number, autocomplete: true, class: "col-md-5 form-control" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-3"><%= f.label :"ステータス", class: "font-weight-bold" %></div>
+    <div class="col-md-5">
+      <%= f.radio_button :is_deleted, false, style: "top:4px" %>
+      <%= f.label :is_deleted, "有効" %>
+      <%= f.radio_button :is_deleted, true, class: "ml-5", style: "top:4px" %>
+      <%= f.label :is_deleted, "退会" %>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.submit "編集", class: "col-md-1 btn btn-success btn-sm" %>
+  </div>
+  <% end %>
+</div>
+

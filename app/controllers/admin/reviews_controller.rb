@@ -15,7 +15,7 @@ class Admin::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def updated
+  def update
    @hotel = Hotel.find_by(id: params[:hotel_id])
    @review = Review.find(params[:id])
     if @review.update(review_params)

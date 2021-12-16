@@ -1,2 +1,45 @@
-<h1>Admin::Reviews#edit</h1>
-<p>Find me in app/views/admin/reviews/edit.html.erb</p>
+<%= render "layouts/map", hotel: @hotel %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <%= render "layouts/hotel", hotel: @hotel %>
+    </div>
+    <div class="col-md-9">
+      <h5><span style="border-bottom: 2px solid #FF9933"><%= @hotel.hotel_name %>のレビュー編集</span></h5>
+      <%= form_with model: @review, url: admin_hotel_review_path(@hotel,@review), local: true do |f| %>
+      <div class="row">
+        <div class="col-md-3 offset-md-1 mt-4 font-weight-bold">画像</div>
+        <div class="col-md-6 mt-4"><%= f.attachment_field :review_image %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 offset-md-1 mt-4 font-weight-bold">タイトル</div>
+        <div class="col-md-6 mt-4"><%= f.text_field :title, class: "form-control" %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 offset-md-1 mt-4 font-weight-bold">評価</div>
+        <div class="col-md-6 mt-4" id="star"><%= f.hidden_field :rate, id: :review_star %></div>
+      </div>
+      <script>
+        $('#star').raty({
+          size: 30,
+          starOff: '<%= asset_path('star-off.png') %>',
+          starOn: '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: 'review[rate]',
+          half: true,
+         });
+      </script>
+      <div class="row">
+        <div class="col-md-3 offset-md-1 mt-4 font-weight-bold">レビュー</div>
+        <div class="col-md-6 mt-4"><%= f.text_area :content, class: "form-control", rows: "5" %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-auto offset-md-4 mt-4">
+          <%= f.submit "レビューを編集する", class: "btn btn-success"%>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
