@@ -10,4 +10,5 @@ class Review < ApplicationRecord
   validates :title, presence: true
   validates :rate, presence: true
 
+
 end

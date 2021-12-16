@@ -31,7 +31,7 @@
           <div style="font-size: 13px" width="250"><strong><%= hotel.hotel_name %></strong></div>
           <div style="font-size: 11px">カテゴリー：<%= hotel.category.category_name %></div>
           <div style="font-size: 11px">エリア：<%= hotel.area.area_name %></div>
-          <div style="font-size: 11px">評価：</div>
+          <div style="font-size: 11px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
         </div>
         <% end %>
       </div>

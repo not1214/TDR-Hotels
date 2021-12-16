@@ -1,15 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 text-center">
-      <%= attachment_image_tag @member, :profile_image, :fill, 100, 75, fallback: "no-image-icon.jpg" %>
+      <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
+      <p class="introduction" style="font-size:10px"><%= @member.introduction %></p>
       <table class="table table-bordered table-sm mt-2 text-left" style="font-size: 9px">
         <tr>
-          <th width="30%">ユーザー名</th>
+          <th width="35%">ユーザー名</th>
           <td><%= @member.username %></td>
         </tr>
-        <tr>
-          <th>紹介文</th>
-          <td class="text-break"><%= @member.introduction %></td>
         </tr>
       </table>
       <% if @member == current_member %>

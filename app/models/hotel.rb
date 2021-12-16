@@ -18,4 +18,13 @@ class Hotel < ApplicationRecord
   validates :website, presence: true
   validates :address, presence: true
 
+
+  def avg_rate
+    unless self.reviews.empty?
+      reviews.average(:rate).round(1)
+    else
+      0.0
+    end
+  end
+
 end

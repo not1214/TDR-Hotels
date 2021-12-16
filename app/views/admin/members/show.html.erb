@@ -1,15 +1,38 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 text-center">
-      <%= attachment_image_tag @member, :profile_image, :fill, 100, 75, fallback: "no-image-icon.jpg" %>
+      <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
+      <p class="introduction" style="font-size:10px"><%= @member.introduction %></p>
       <table class="table table-bordered table-sm mt-2 text-left" style="font-size: 9px">
         <tr>
-          <th width="30%">ユーザー名</th>
+          <th width="35%">ユーザー名</th>
           <td><%= @member.username %></td>
         </tr>
         <tr>
-          <th>紹介文</th>
-          <td class="text-break"><%= @member.introduction %></td>
+          <th>氏名</th>
+          <td><%= @member.last_name %> <%= @member.first_name %></td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td><%= @member.last_name_kana %> <%= @member.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @member.email %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @member.phone_number %></td>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <td>
+            <% if @member.is_deleted? %>
+              退会
+            <% else %>
+              有効
+            <% end %>
+          </td>
         </tr>
       </table>
       <p><%= link_to "編集する", "/admin/#{@member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>

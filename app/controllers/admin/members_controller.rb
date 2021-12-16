@@ -17,7 +17,7 @@ class Admin::MembersController < ApplicationController
     @member = Member.find_by(username: params[:username])
     if @member.update(member_params)
       flash[:notice] = "会員情報を更新しました。"
-      redirect_to "/admin/#{current_member.username}"
+      redirect_to "/admin/#{@member.username}"
     else
       flash[:alert] = "会員情報を更新できませんでした。"
       render :edit
