@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
-
   #管理者用ルーティング
   namespace :admin do
 
@@ -62,8 +61,6 @@ Rails.application.routes.draw do
 
     #検索機能
     get "/hotel_search" => "searches#hotel_search"
-    get "/category_search" => "searches#category_search"
-    get "/area_search" => "searches#area_search"
 
     resources :pictures, only: [:index]
 
@@ -75,6 +72,9 @@ Rails.application.routes.draw do
         get "complete"
       end
     end
+
+    resources :areas, only: [:show]
+    resources :categories, only: [:show]
 
     #URLがusernameになるようにルーティング設定
     get "/mypage" => "members#mypage"

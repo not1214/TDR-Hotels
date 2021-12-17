@@ -27,4 +27,12 @@ class Hotel < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    if search
+      Hotel.where("hotel_name LIKE(?)", "%#{search}%")
+    else
+      Hotel.all
+    end
+  end
+
 end

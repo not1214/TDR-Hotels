@@ -4,7 +4,11 @@
 <div class="border border-info p-3">
   <ul class="list-unstyled">
     <% categories.each do |category| %>
-    <li style="font-size: 12px"><%= category.category_name %></li>
+    <li style="font-size: 12px">
+      <%= link_to category_path(category) do %>
+        <%= category.category_name %>
+      <% end %>
+    </li>
     <% end %>
   </ul>
 </div>

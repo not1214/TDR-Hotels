@@ -4,7 +4,9 @@
 <div class="border border-info p-3">
   <ul class="list-unstyled">
     <% areas.each do |area| %>
-    <li style="font-size: 12px"><%= area.area_name %></li>
+      <%= link_to area_path(area) do %>
+        <li style="font-size: 12px"><%= area.area_name %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
