@@ -1,2 +1,23 @@
-<h1>Admin::Pictures#new</h1>
-<p>Find me in app/views/admin/pictures/new.html.erb</p>
+<div class="container-fluid">
+
+  <div class="row justify-content-center mb-3">
+    <h3 style="border-bottom: 2px solid #FF9933">写真登録</h3>
+  </div>
+
+  <%= form_with model: @picture, url: admin_pictures_path, local: true do |f| %>
+  <div class="row justify-content-center mb-3">
+    <%= f.label :"画像選択", class: "col-md-3 font-weight-bold" %>
+    <%= f.attachment_field :image, class: "col-md-4" %>
+  </div>
+
+  <div class="row justify-content-center mb-3">
+    <%= f.label :"画像名", class: "col-md-3  font-weight-bold" %>
+    <%= f.text_field :image_name, class: "col-md-4 form-control" %>
+  </div>
+
+  <div class="row justify-content-center">
+    <%= f.submit "登録", class: "col-md-1 btn btn-success" %>
+  </div>
+  <% end %>
+
+</div>

@@ -10,7 +10,7 @@ class Admin::PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
-    if @picture.save
+    if @picture.save!
       flash[:notice] = "写真を登録しました。"
       redirect_to admin_pictures_path
     else
@@ -28,8 +28,8 @@ class Admin::PicturesController < ApplicationController
 
   private
 
-    def picture_params
-      params.require(:picture).permit(:image, :image_name)
-    end
+  def picture_params
+    params.require(:picture).permit(:image, :image_name)
+  end
 
 end
