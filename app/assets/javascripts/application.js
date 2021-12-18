@@ -23,6 +23,11 @@
 
 /* global $*/
 document.addEventListener("turbolinks:load", function () {
+  // console.log("test");
+  var lightbox2 = document.createElement("script");
+  lightbox2.src = "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js";
+  document.head.appendChild(lightbox2);
+
   $(function() {
       $('.slider').slick({
           dots: true,
