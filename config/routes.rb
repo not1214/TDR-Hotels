@@ -80,6 +80,7 @@ Rails.application.routes.draw do
     get "/mypage" => "members#mypage"
     get "/:username" => "members#show"
     get "/:username/edit" => "members#edit"
+    get "/:username/favorites" => "members#favorites"
     patch "/:username" => "members#update"
     get "/:username/unsubscribe" => "members#unsubscribe"
     patch "/:username/withdraw" => "members#withdraw", as: "withdraw_member"

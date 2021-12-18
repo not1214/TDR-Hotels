@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
+      <div><%= @member.username %></div>
+      <p class="introduction" style="font-size:10px"><%= @member.introduction %></p>
+      <p><%= link_to "編集する", "/#{current_member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>
+    </div>
+
+    <div class="col-md-9">
+      <h5 class="mb-3"><span style="border-bottom: 2px solid #FF9933">お気に入りホテル一覧</span></h5>
+      <div class="d-flex flex-wrap">
+        <% @favorite_hotels.each do |hotel| %>
+        <div class="d-flex flex-column mb-3 mr-3">
+          <div>
+            <%= link_to hotel_path(hotel) do %>
+              <% hotel.hotel_images.first(1).each do |image| %>
+                <%= attachment_image_tag image, :image, :fill, 230, 200 %>
+              <% end %>
+            <% end %>
+          </div>
+          <div style="font-size: 13px" width="250"><strong><%= hotel.hotel_name %></strong></div>
+          <div style="font-size: 11px">カテゴリー：<%= hotel.category.category_name %></div>
+          <div style="font-size: 11px">エリア：<%= hotel.area.area_name %></div>
+          <div style="font-size: 11px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

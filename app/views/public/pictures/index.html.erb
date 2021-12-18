@@ -7,7 +7,7 @@
   <div class="row justify-content-center">
     <div class="d-flex flex-wrap">
       <% @pictures.each do |picture| %>
-      <div class="lightbox2 mb-3 mx-2">
+      <div class="mb-3 mx-2">
         <%= link_to Refile.attachment_url(picture, :image), "data-lightbox": "pictures" do %>
           <%= attachment_image_tag picture, :image, :fill, 200, 200 %>
           <div style="font-size:10px"><%= picture.image_name %></div>

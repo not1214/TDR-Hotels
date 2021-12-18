@@ -1,11 +1,11 @@
 class Public::MembersController < ApplicationController
 
   def mypage
-    redirect_to "/#{current_member.username}"
+    @member = current_member
   end
 
   def show
-    @member = current_member
+    @member = Member.find_by(username: params[:username])
     @reviews = @member.reviews
   end
 
@@ -36,6 +36,12 @@ class Public::MembersController < ApplicationController
     @member.update(is_deleted: true)
     reset_session
     redirect_to root_path
+  end
+
+  def favorites
+    @member = current_member
+    @favorites = current_member.favorites.pluck(:hotel_id)
+    @favorite_hotels = Hotel.find(@favorites)
   end
 
   private
