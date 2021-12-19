@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row justify-content-center mb-3">
-    <h3 style="border-bottom: 2px solid #FF9933">検索結果</h3>
+    <h3 style="border-bottom: 2px solid #FF9933"><%= @area.area_name %>エリアのホテル一覧</h3>
   </div>
 
   <div class="row justify-content-center">
@@ -15,7 +15,7 @@
 
     <div class="col-md-9">
       <div class="d-flex flex-wrap">
-        <% @hotel_search.each do |hotel| %>
+        <% @area_hotel.each do |hotel| %>
         <div class="d-flex flex-column mb-3 mr-3">
           <div>
             <%= link_to admin_hotel_path(hotel) do %>
@@ -35,4 +35,3 @@
 
   </div>
 </div>
-

@@ -4,6 +4,13 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def show
+    @categories = Category.all
+    @areas = Area.all
+    @category = Category.find(params[:id])
+    @category_hotel = Hotel.where(category_id: @category.id)
+  end
+
   def create
     @category = Category.new(category_params)
     if @category.save

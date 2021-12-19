@@ -23,14 +23,12 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :categories, only: [:index, :create, :edit, :update, :destroy]
-    resources :areas, only: [:index, :create, :edit, :update]
+    resources :categories, only: [:index, :create, :edit, :update, :destroy, :show]
+    resources :areas, only: [:index, :create, :edit, :update, :show]
     resources :pictures, only: [:index, :new, :create, :destroy]
 
     #検索機能
     get "/hotel_search" => "searches#hotel_search"
-    get "/category_search" => "searches#category_search"
-    get "/area_search" => "searches#area_search"
 
     #会員のusernameがURLに表示される
     get "/members" => "members#index"
