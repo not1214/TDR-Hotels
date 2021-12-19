@@ -1,5 +1,7 @@
 class Admin::ReviewsController < ApplicationController
 
+  before_action :authenticate_admin!
+
   def index
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @reviews = Review.where(hotel_id: params[:hotel_id])

@@ -1,5 +1,7 @@
 class Public::FavoritesController < ApplicationController
 
+  before_action :authenticate_member!
+
   def create
     @hotel = Hotel.find(params[:hotel_id])
     @favorite = current_member.favorites.create(hotel_id: @hotel.id)

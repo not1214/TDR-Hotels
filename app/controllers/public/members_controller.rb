@@ -1,7 +1,10 @@
 class Public::MembersController < ApplicationController
 
+  before_action :authenticate_member!
+
   def mypage
     @member = current_member
+    @reviews = @member.reviews
   end
 
   def show

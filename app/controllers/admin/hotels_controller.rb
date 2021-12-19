@@ -1,4 +1,7 @@
 class Admin::HotelsController < ApplicationController
+
+  before_action :authenticate_admin!
+
   def index
     @hotels = Hotel.all
     @categories = Category.all

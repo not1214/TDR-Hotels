@@ -1,4 +1,7 @@
 class Public::HotelsController < ApplicationController
+
+  before_action :authenticate_member!, except:[:index]
+
   def index
     @hotels = Hotel.all
     @categories = Category.all
