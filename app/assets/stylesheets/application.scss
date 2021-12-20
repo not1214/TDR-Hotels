@@ -86,6 +86,25 @@ footer {
   font-size: 14px !important;
 }
 
+.slider-top {
+  width: 700px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.slider-image {
+  position: relative;
+}
+
+.slider-text {
+  padding: 0 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .balloon {
   position: relative;
   margin: 0 0 10px 30px;

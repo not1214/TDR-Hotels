@@ -36,5 +36,13 @@ document.addEventListener("turbolinks:load", function () {
           arrows: true,
           infinite: true,
       });
+
+      $(".slider-top").slick({
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: true,
+          infinite: true,
+      });
   });
 });
