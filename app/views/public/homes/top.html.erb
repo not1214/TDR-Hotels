@@ -1,56 +1,39 @@
+<script>
+  $(".container-fluid").hide().fadeIn(1500);
+</script>
+
 <div class="container-fluid">
-
-  <div class="slider-top row justify-content-center">
-    <div class="slider-image">
-      <div><%= image_tag 'IMG_9429-min.jpg', width: 700, height: 400 %></div>
-      <div class="slider-text">運動公園</div>
-    </div>
-    <div class="slider-image">
-      <div><%= image_tag 'IMG_9360-min.jpg', width: 700, height: 400 %></div>
-      <div class="slider-text">総合公園</div>
-    </div>
-    <div class="slider-image">
-      <div><%= image_tag 'IMG_9428-min.jpg', width: 700, height: 400 %></div>
-      <div class="slider-text">東京ディズニーリゾート</div>
-    </div>
-    <div class="slider-image">
-      <div><%= image_tag 'IMG_9462-min.jpg', width: 700, height: 400 %></div>
-      <div class="slider-text">ベイサイドステーション</div>
-    </div>
-    <div class="slider-image">
-      <div><%= image_tag 'IMG_9499-min.jpg', width: 700, height: 400 %></div>
-      <div class="slider-text">東京ディズニーシー</div>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-md-3 d-flex flex-column">
-      <div>
-        <%= render "layouts/category_search", categories: @categories %>
+  <div class="row d-inline-flex ml-3">
+    <div class="slider-top">
+      <div class="slider-image">
+        <%= image_tag 'IMG_9429-min.jpg', height: 500, width: 670 %>
+        <div class="slider-text">運動公園</div>
       </div>
-      <div class="mt-3">
-        <%= render "layouts/area_search", areas: @areas %>
+      <div class="slider-image">
+        <%= image_tag 'IMG_9360-min.jpg', height: 500, width: 670  %>
+        <div class="slider-text">総合公園</div>
+      </div>
+      <div class="slider-image">
+        <%= image_tag 'IMG_9428-min.jpg', height: 500, width: 670  %>
+        <div class="slider-text">東京ディズニーリゾート</div>
+      </div>
+      <div class="slider-image">
+        <%= image_tag 'IMG_9462-min.jpg', height: 500, width: 670  %>
+        <div class="slider-text">ベイサイドステーション</div>
+      </div>
+      <div class="slider-image">
+        <%= image_tag 'IMG_9499-min.jpg', height: 500, width: 670  %>
+        <div class="slider-text">東京ディズニーシー</div>
       </div>
     </div>
-
-    <div class="col-md-9">
-
-      <div class="d-flex flex-wrap">
-        <% @hotels.each do |hotel| %>
-        <div class="d-flex flex-column mb-3 mr-3">
-          <div>
-            <% hotel.hotel_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, :fill, 230, 200 %>
-            <% end %>
-          </div>
-          <div style="font-size: 13px" width="250"><strong><%= hotel.hotel_name %></strong></div>
-          <div style="font-size: 11px">カテゴリー名：<%= hotel.category.category_name %></div>
-          <div style="font-size: 11px">エリア名：<%= hotel.area.area_name %></div>
-          <div style="font-size: 11px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
-        </div>
-        <% end %>
+    <div class="d-flex flex-column ml-3">
+      <h1 class="mt-auto" style="color: #007bff">浦安</h1>
+      <h1 class="pl-3" style="color: #007bff">ホテルサーチ</h1>
+      <p class="pl-5 mb-auto">－　浦安で旅の続きを。－</p>
+      <div class="text-center mb-5">
+        <%= link_to "新規登録", new_member_registration_path, class: "col-md-4 btn btn-dark btn-sm" %>
+        <%= link_to "about", about_path, class: "col-md-4 btn btn-dark btn-sm ml-3" %>
       </div>
-
     </div>
   </div>
 </div>

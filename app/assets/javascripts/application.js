@@ -38,11 +38,15 @@ document.addEventListener("turbolinks:load", function () {
       });
 
       $(".slider-top").slick({
+          arrows: false,
           dots: true,
           autoplay: true,
-          autoplaySpeed: 3000,
-          arrows: true,
-          infinite: true,
+          autoplaySpeed: 1500,
+          speed: 4000,
+          fade: true,
+          pauseOnFocus: false,
+          pauseOnHover: false,
+          pauseOnDotsHover: false,
       });
   });
 });
