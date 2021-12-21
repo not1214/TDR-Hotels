@@ -18,35 +18,48 @@
 //= require rails-ujs
 //= require jquery.raty.js
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 /* global $*/
-document.addEventListener("turbolinks:load", function () {
-  // console.log("test");
-  // var lightbox2 = document.createElement("script");
-  // lightbox2.src = "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js";
-  // document.head.appendChild(lightbox2);
+$(function() {
+    $('.slider').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+        infinite: true,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        pauseOnDotsHover: false,
 
-  $("turbolinks:load", function() {
-      $('.slider').slick({
-          dots: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
-          arrows: true,
-          infinite: true,
-      });
+    });
 
-      $(".slider-top").slick({
-          arrows: false,
-          dots: true,
-          autoplay: true,
-          autoplaySpeed: 1500,
-          speed: 4000,
-          fade: true,
-          pauseOnFocus: false,
-          pauseOnHover: false,
-          pauseOnDotsHover: false,
-      });
+    $(".slider-top").slick({
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        speed: 4000,
+        fade: true,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        pauseOnDotsHover: false,
+    });
+});
+
+/*global lightbox*/
+$(function () {
+  lightbox.option({
+    'alwaysShowNavOnTouchDevices': false,
+    'disableScrolling': false,
+    'fadeDuration': 600,
+    'fitImagesInViewport': true,
+    'imageFadeDuration': 600,
+    'maxWidth': 400,
+    'maxHeight': 400,
+    'positionFromTop': 50,
+    'resizeDuration': 700,
+    'showImageNumberLabel': true,
+    'wrapAround': true,
   });
 });
