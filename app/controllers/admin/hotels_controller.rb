@@ -3,7 +3,7 @@ class Admin::HotelsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.all.page(params[:page]).per(9)
     @categories = Category.all
     @areas = Area.all
   end

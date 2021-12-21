@@ -1,5 +1,5 @@
 class Admin::MembersController < ApplicationController
-  
+
   before_action :authenticate_admin!
 
   def index
@@ -8,7 +8,7 @@ class Admin::MembersController < ApplicationController
 
   def show
     @member = Member.find_by(username: params[:username])
-    @reviews = @member.reviews
+    @reviews = @member.reviews.page(params[:page]).per(5)
   end
 
   def edit

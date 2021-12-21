@@ -3,7 +3,7 @@ class Public::HotelsController < ApplicationController
   before_action :authenticate_member!, except:[:index]
 
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.all.page(params[:page]).per(9)
     @categories = Category.all
     @areas = Area.all
   end
@@ -14,6 +14,6 @@ class Public::HotelsController < ApplicationController
 
   def ranking
     @rate_ranks = Hotel.find(Review.group(:hotel_id).order("avg(rate) desc").limit(5).pluck(:hotel_id))
-    @favorite_ranks = Hotel.find(Favorite.group(:hotel_id).order("count(hotel_id) desc").pluck(:hotel_id))
+    @favorite_ranks = Hotel.find(Favorite.group(:hotel_id).order("count(hotel_id) desc").limit(5).pluck(:hotel_id))
   end
 end

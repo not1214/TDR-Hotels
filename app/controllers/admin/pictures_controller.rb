@@ -3,7 +3,7 @@ class Admin::PicturesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.page(params[:page]).per(15)
   end
 
   def new
