@@ -37,6 +37,17 @@ header {
     background-color: #007bff !important;
     color: white !important;
   }
+  .nav-link:hover {
+    background-color: #FF9933 !important;
+  }
+}
+
+.fab:hover {
+  color: #FF9933;
+}
+
+.input-group-text:hover {
+  background-color: #FF9933 !important;
 }
 
 main {
