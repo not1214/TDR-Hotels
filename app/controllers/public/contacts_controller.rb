@@ -23,7 +23,7 @@ class Public::ContactsController < ApplicationController
       flash[:notice] = "お問い合わせを送信しました。"
       redirect_to complete_contacts_path
     else
-      flash[:alert] = "お問い合わせを送信できませんでした。再度入力してください。"
+      flash.now[:alert] = "お問い合わせを送信できませんでした。再度入力してください。"
       render :new
     end
   end

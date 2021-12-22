@@ -8,14 +8,14 @@
   <% end %>
 
   <div class="row justify-content-center">
-    <%= f.label :"ユーザー名", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"ユーザー名*", class: "col-md-3 font-weight-bold" %>
     <%= f.text_field :username, autocomplete: "username", class: "col-md-5 form-control" %>
     <% if @member.errors.include?(:username) %>
       <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.label :"氏名", class: "col-md-2 font-weight-bold" %>
+    <%= f.label :"氏名*", class: "col-md-2 font-weight-bold" %>
     <%= f.label :"(姓)", class: "col-md-1 font-weight-bold text-right" %>
     <%= f.text_field :last_name, autocomplete: true, class: "col-md-2 form-control" %>
     <%= f.label :"(名)", class: "col-md-1 font-weight-bold text-right" %>
@@ -29,7 +29,7 @@
 
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.label :"フリガナ", class: "col-md-2 font-weight-bold" %>
+    <%= f.label :"フリガナ*", class: "col-md-2 font-weight-bold" %>
     <%= f.label :"(セイ)", class: "col-md-1 font-weight-bold text-right" %>
     <%= f.text_field :last_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
     <%= f.label :"(メイ)", class: "col-md-1 font-weight-bold text-right" %>
@@ -42,14 +42,14 @@
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.label :"メールアドレス", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"メールアドレス*", class: "col-md-3 font-weight-bold" %>
     <%= f.email_field :email, autocomplete: "email", class: "col-md-5 form-control" %>
     <% if @member.errors.include?(:email) %>
       <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:email).first %></div>
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.label :"電話番号(ハイフンなし)", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"電話番号(ハイフンなし)*", class: "col-md-3 font-weight-bold" %>
     <%= f.text_field :phone_number, autocomplete: true, class: "col-md-5 form-control" %>
     <% if @member.errors.include?(:phone_number) %>
       <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:phone_number).first %></div>
@@ -57,7 +57,7 @@
   </div>
   <div class="row justify-content-center mt-3">
     <div class="col-md-3">
-      <%= f.label :"パスワード", class: "font-weight-bold" %>
+      <%= f.label :"パスワード*", class: "font-weight-bold" %>
 	    <% if @minimum_password_length %>
       　<em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %>
@@ -68,7 +68,7 @@
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.label :"パスワード(確認用)", class: "col-md-3 font-weight-bold" %>
+    <%= f.label :"パスワード(確認用)*", class: "col-md-3 font-weight-bold" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-md-5 form-control" %>
     <% if @member.errors.include?(:password_confirmation) %>
       <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:password_confirmation).first %></div>

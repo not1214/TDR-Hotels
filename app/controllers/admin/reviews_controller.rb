@@ -24,7 +24,7 @@ class Admin::ReviewsController < ApplicationController
       flash[:notice] = "レビューを更新しました。"
       redirect_to admin_hotel_review_path(@hotel,@review)
     else
-      flash[:alert] = "レビューを更新できませんでした。再度入力してください。"
+      flash.now[:alert] = "レビューを更新できませんでした。再度入力してください。"
       render :edit
     end
   end

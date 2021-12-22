@@ -1,3 +1,9 @@
 $("#favorite_on_hotel_<%= @hotel.id %>").html("<%= j(render 'public/favorites/favorite-bigbtn', hotel: @hotel) %>");
 
 $("#favorite_on_review_<%= @hotel.id %>").html("<%= j(render 'public/favorites/favorite-smallbtn', hotel: @hotel) %>");
+
+
+if(document.getElementById('flash-message')){
+    document.getElementById('flash-message').style.display ="none";
+    document.getElementById('flash-message').style.display ="block";
+  }

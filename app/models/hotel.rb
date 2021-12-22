@@ -17,6 +17,7 @@ class Hotel < ApplicationRecord
   validates :caption, presence: true
   validates :website, presence: true
   validates :address, presence: true
+  validates :hotel_images, presence: true
 
 
   def avg_rate

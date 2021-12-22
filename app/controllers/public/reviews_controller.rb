@@ -26,7 +26,7 @@ class Public::ReviewsController < ApplicationController
       flash[:notice] = "レビューを投稿しました。"
       redirect_to hotel_reviews_path(@hotel)
     else
-      flash[:alert] = "レビューを投稿できませんでした。もう一度入力してください。"
+      flash.now[:alert] = "レビューを投稿できませんでした。もう一度入力してください。"
       render :new
     end
   end
@@ -43,7 +43,7 @@ class Public::ReviewsController < ApplicationController
       flash[:notice] = "レビューを編集しました。"
       redirect_to hotel_review_path(@hotel,@review)
     else
-      flash[:alert] = "レビューを編集できませんでした。再度入力してください。"
+      flash.now[:alert] = "レビューを編集できませんでした。再度入力してください。"
       render :edit
     end
   end

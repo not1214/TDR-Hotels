@@ -3,21 +3,18 @@
     <h3 style="border-bottom: 2px solid #FF9933">カテゴリー一覧＆登録</h3>
   </div>
 
-  <div class="row justify-content-center">
-    <div class="col-md-auto">
-    <%= form_with model: @category, url: admin_categories_path, local: true do |f| %>
-    <table class="table table-borderless">
-      <tr>
-        <th width="150">カテゴリー名</th>
-        <td width="300"><%= f.text_field :category_name, autofocus: true, autocomplete: "category_name", class: "form-control" %></td>
-        <td><%= f.submit "登録", class: "btn btn-success" %></td>
-      </tr>
-    <% end %>
-    </table>
-    </div>
+  <%= form_with model: @category, url: admin_categories_path, local: true do |f| %>
+  <div class="row justify-content-center mt-5">
+    <%= f.label :"カテゴリー名", class: "col-md-auto font-weight-bold mr-3" %>
+    <%= f.text_field :category_name, autofocus: true, autocomplete: "category_name", class: "col-md-3 form-control" %>
+    <%= f.submit "登録", class: "col-md-auto btn btn-success ml-3" %>
   </div>
+  <% end %>
+  <% if @category.errors.include?(:category_name) %>
+    <div  class="col-md-3 offset-md-5 mt-2" style="color: red;"><%= @category.errors.full_messages_for(:category_name).first %></div>
+  <% end %>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mt-5">
     <div class="col-md-auto">
 
       <table class="table table-bordered table-striped">

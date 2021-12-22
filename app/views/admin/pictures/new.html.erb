@@ -6,17 +6,23 @@
 
   <%= form_with model: @picture, url: admin_pictures_path, local: true do |f| %>
   <div class="row justify-content-center mb-3">
-    <%= f.label :"画像選択", class: "col-md-3 font-weight-bold" %>
-    <%= f.attachment_field :image, class: "col-md-4" %>
+    <%= f.label :"画像選択", class: "col-md-1 font-weight-bold" %>
+    <%= f.attachment_field :image, class: "col-md-3" %>
   </div>
+  <% if @picture.errors.include?(:image) %>
+    <div class="col-md-5 offset-md-3" style="color:red;"><%= @picture.errors.full_messages_for(:image).first %></div>
+  <% end %>
 
   <div class="row justify-content-center mb-3">
-    <%= f.label :"画像名", class: "col-md-3  font-weight-bold" %>
-    <%= f.text_field :image_name, class: "col-md-4 form-control" %>
+    <%= f.label :"画像名", class: "col-md-1  font-weight-bold" %>
+    <%= f.text_field :image_name, class: "col-md-3 form-control" %>
   </div>
+  <% if @picture.errors.include?(:image_name) %>
+    <div class="col-md-5 offset-md-3" style="color:red;"><%= @picture.errors.full_messages_for(:image_name).first %></div>
+  <% end %>
 
   <div class="row justify-content-center">
-    <%= f.submit "登録", class: "col-md-1 btn btn-success" %>
+    <%= f.submit "登録", class: "col-md-auto btn btn-success" %>
   </div>
   <% end %>
 

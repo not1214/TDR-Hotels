@@ -21,7 +21,7 @@ class Admin::HotelsController < ApplicationController
       flash[:notice] = "ホテル情報を登録しました。"
       redirect_to admin_hotel_path(@hotel)
     else
-      flash[:alert] = "ホテル情報を登録できませんでした。"
+      flash.now[:alert] = "ホテル情報を登録できませんでした。"
       render :new
     end
   end
@@ -43,7 +43,7 @@ class Admin::HotelsController < ApplicationController
       flash[:notice] = "ホテル情報を更新しました。"
       redirect_to admin_hotel_path(@hotel)
     else
-      flash[:alert] = "ホテル情報を更新できませんでした。再度入力してください。"
+      flash.now[:alert] = "ホテル情報を更新できませんでした。再度入力してください。"
       render :edit
     end
   end

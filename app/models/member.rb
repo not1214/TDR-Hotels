@@ -14,9 +14,6 @@ class Member < ApplicationRecord
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
   validates :phone_number, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
 
   attachment :profile_image
 

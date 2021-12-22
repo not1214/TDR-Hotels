@@ -1,7 +1,7 @@
 class Admin::AreasController < ApplicationController
-  
+
   before_action :authenticate_admin!
-  
+
   def index
     @areas = Area.all
     @area = Area.new
@@ -20,7 +20,7 @@ class Admin::AreasController < ApplicationController
       flash[:notice] = "エリアを登録しました。"
       redirect_to admin_areas_path
     else
-      flash[:alert] = "エリアを登録できませんでした。再度入力してください。"
+      flash.now[:alert] = "エリアを登録できませんでした。再度入力してください。"
       @areas = Area.all
       render :index
     end
@@ -36,7 +36,7 @@ class Admin::AreasController < ApplicationController
       flash[:notice] = "エリアを更新しました。"
       redirect_to admin_areas_path
     else
-      flash[:alert] = "エリアを更新できませんでした。再度入力してください。"
+      flash.now[:alert] = "エリアを更新できませんでした。再度入力してください。"
       render :edit
     end
   end

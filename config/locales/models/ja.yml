@@ -13,3 +13,27 @@ ja:
         last_name_kana: セイ
         first_name_kana: メイ
         phone_number: 電話番号
+      admin:
+        email: メールアドレス
+        password: パスワード
+      hotel:
+        category_id: カテゴリ
+        area_id: エリア
+        hotel_name: ホテル名
+        price_range: 価格帯
+        caption: 特徴
+        website: ホームページ
+        address: 住所
+        hotel_images: 画像
+      review:
+        title: タイトル
+        rate: 評価
+      category:
+        category_name: カテゴリ名
+      area:
+        area_name: エリア名
+      contact:
+        name: 名前
+        email: メールアドレス
+        subject: 件名
+        message: メッセージ

@@ -4,22 +4,14 @@
   </div>
 
   <%= form_with model: @member, url: member_session_path, local: true do |f| %>
-  <% if @member.errors.any? %>
-  <% end %>
 
   <div class="row justify-content-center">
     <%= f.label :"メールアドレス", class: "col-md-2 font-weight-bold" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-3 form-control" %>
-    <% if @member.errors.include?(:email) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:email).first %></div>
-    <% end %>
   </div>
   <div class="row justify-content-center mt-3">
     <%= f.label :"パスワード", class: "col-md-2 font-weight-bold" %>
     <%= f.password_field :password, autocomplete: "current-password", class: "col-md-3 form-control" %>
-    <% if @member.errors.include?(:password) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:password).first %></div>
-    <% end %>
   </div>
   <div class="row justify-content-center mt-3">
     <% if devise_mapping.rememberable? %>

@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" rel="stylesheet">
 
-
   </head>
 
   <body id="content">
@@ -20,6 +19,10 @@
     <header>
       <%= render "layouts/header" %>
     </header>
+
+    <div id="flash-message">
+      <%= render "layouts/flash" %>
+    </div>
 
     <main>
       <%= yield %>
