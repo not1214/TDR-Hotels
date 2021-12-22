@@ -4,32 +4,33 @@
   </div>
 
   <%= form_with model: @member, url: member_session_path, local: true do |f| %>
-  <div class="row">
-  　<div class="mx-auto">
-    　<%= render "public/shared/error_messages", resource: resource %>
-      <table class="table table-borderless">
-        <tr>
-          <th><%= f.label :"メールアドレス" %></th>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <th><%= f.label :"パスワード" %></th>
-          <td><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <% if devise_mapping.rememberable? %>
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= f.submit "ログイン", class: "btn btn-success" %></td>
-        </tr>
-      </table>
-    </div>
+  <% if @member.errors.any? %>
+  <% end %>
+
+  <div class="row justify-content-center">
+    <%= f.label :"メールアドレス", class: "col-md-2 font-weight-bold" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-3 form-control" %>
+    <% if @member.errors.include?(:email) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:email).first %></div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"パスワード", class: "col-md-2 font-weight-bold" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "col-md-3 form-control" %>
+    <% if @member.errors.include?(:password) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:password).first %></div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <% if devise_mapping.rememberable? %>
+      <div class="col-md-3 offset-md-2">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.submit "ログイン", class: "col-md-1 btn btn-success" %>
   </div>
   <% end %>
 

@@ -4,61 +4,78 @@
   </div>
 
   <%= form_with model: @member, url: member_registration_path, local: true do |f| %>
-  <div class="row">
-  　<div class="mx-auto">
-    　<%= render "public/shared/error_messages", resource: resource %>
+  <% if @member.errors.any? %>
+  <% end %>
 
-      <table class="table table-borderless">
-        <tr>
-      	  <th><%= f.label :"ユーザー名" %></th>
-      	  <td></td>
-      	  <td colspan="3"><%= f.text_field :username, autocomplete: "username", class: "form-control" %></td>
-        </tr>
-        <tr>
-      	  <th width="230"><%= f.label :"氏名" %></th>
-      	  <td width="70">(姓)</td>
-      	  <td width="230"><%= f.text_field :last_name, autocomplete: "last_name", class: "form-control" %></td>
-      	  <td width="70">(名)</td>
-      	  <td><%= f.text_field :first_name, autocomplete: "first_name", class: "form-control" %></td>
-        </tr>
-        <tr>
-      	  <th><%= f.label :"フリガナ" %></th>
-      	  <td>(セイ)</td>
-      	  <td><%= f.text_field :last_name_kana, autocomplete: "last_name_kana", class: "form-control" %></td>
-      	  <td>(メイ)</td>
-      	  <td><%= f.text_field :first_name_kana, autocomplete: "first_name_kana", class: "form-control" %></td>
-        </tr>
-        <tr>
-      	  <th><%= f.label :"メールアドレス" %></th>
-      	  <td></td>
-      	  <td colspan="3"><%= f.email_field :email, autocomplete: "email", class: "form-control" %></td>
-        </tr>
-        <tr>
-      	  <th><%= f.label :"電話番号(ハイフンなし)" %></th>
-      	  <td></td>
-      	  <td colspan="3"><%= f.text_field :phone_number, autocomplete: "phone_number", class: "form-control" %></td>
-        </tr>
-        <tr>
-      	  <th>
-      	    <%= f.label :"パスワード" %>
-      	    <% if @minimum_password_length %>
-            　<em>(<%= @minimum_password_length %> 文字以上)</em>
-            <% end %>
-          </th>
-          <td></td>
-      	  <td colspan="3"><%= f.password_field :password, autocomplete: "new-password", class: "form-control" %></td>
-        </tr>
-        <tr>
-      	  <th><%= f.label :"パスワード(確認用)" %></th>
-      	  <td></td>
-      	  <td colspan="3"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
-        </tr>
-      </table>
-    </div>
+  <div class="row justify-content-center">
+    <%= f.label :"ユーザー名", class: "col-md-3 font-weight-bold" %>
+    <%= f.text_field :username, autocomplete: "username", class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:username) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
+    <% end %>
   </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"氏名", class: "col-md-2 font-weight-bold" %>
+    <%= f.label :"(姓)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :last_name, autocomplete: true, class: "col-md-2 form-control" %>
+    <%= f.label :"(名)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :first_name, autocomplete: true, class: "col-md-2 form-control" %>
+    <% if @member.errors.include?(:last_name) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name).first %></div>
+    <% end %>
+    <% if @member.errors.include?(:first_name) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name).first %></div>
+    <% end %>
 
-  <div class="row mt-2 justify-content-center">
-    <%= f.submit "新規登録", class: "btn btn-success" %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"フリガナ", class: "col-md-2 font-weight-bold" %>
+    <%= f.label :"(セイ)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :last_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
+    <%= f.label :"(メイ)", class: "col-md-1 font-weight-bold text-right" %>
+    <%= f.text_field :first_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
+    <% if @member.errors.include?(:last_name_kana) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name_kana,).first %></div>
+    <% end %>
+    <% if @member.errors.include?(:first_name_kana) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name_kana).first %></div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"メールアドレス", class: "col-md-3 font-weight-bold" %>
+    <%= f.email_field :email, autocomplete: "email", class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:email) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:email).first %></div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"電話番号(ハイフンなし)", class: "col-md-3 font-weight-bold" %>
+    <%= f.text_field :phone_number, autocomplete: true, class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:phone_number) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:phone_number).first %></div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-3">
+      <%= f.label :"パスワード", class: "font-weight-bold" %>
+	    <% if @minimum_password_length %>
+      　<em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %>
+    </div>
+    <%= f.password_field :password, autocomplete: "new-password", class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:password) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:password).first %></div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <%= f.label :"パスワード(確認用)", class: "col-md-3 font-weight-bold" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:password_confirmation) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:password_confirmation).first %></div>
+    <% end %>
+  </div>
+  <div class="row mt-3 justify-content-center">
+    <%= f.submit "新規登録", class: "col-md-1 btn btn-success" %>
   </div>
   <% end %>
 
