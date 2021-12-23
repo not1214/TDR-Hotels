@@ -4,14 +4,21 @@ class Public::ReviewCommentsController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    comment = current_member.review_comments.new(review_comment_params)
-    comment.review_id = @review.id
-    comment.save
+    @comment = current_member.review_comments.new(review_comment_params)
+    @comment.review_id = @review.id
+    if @comment.save
+      flash[:notice] = "コメントを送信しました。"
+    else
+      flash.now[:alert] = "コメントを送信できませんでした。再度入力してください。"
+      render "error"
+    end
+
   end
 
   def destroy
     @review = Review.find(params[:review_id])
     ReviewComment.find_by(id: params[:id]).destroy
+    flash[:alert] = "コメントを削除しました。"
   end
 
   private

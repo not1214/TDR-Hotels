@@ -11,6 +11,9 @@
   <div class="row justify-content-center mt-3">
     <%= f.label :"ユーザー名", class: "col-md-3 font-weight-bold" %>
     <%= f.text_field :username, autocomplete: true, class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:username) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
+    <% end %>
   </div>
   <div class="row justify-content-center mt-3">
     <%= f.label :"紹介文", class: "col-md-3 font-weight-bold" %>
@@ -22,6 +25,12 @@
     <%= f.text_field :last_name, autocomplete: true, class: "col-md-2 form-control" %>
     <%= f.label :"(名)", class: "col-md-1 font-weight-bold text-right" %>
     <%= f.text_field :first_name, autocomplete: true, class: "col-md-2 form-control" %>
+    <% if @member.errors.include?(:last_name) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name).first %></div>
+    <% end %>
+    <% if @member.errors.include?(:first_name) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name).first %></div>
+    <% end %>
   </div>
   <div class="row justify-content-center mt-3">
     <%= f.label :"フリガナ", class: "col-md-2 font-weight-bold" %>
@@ -29,10 +38,19 @@
     <%= f.text_field :last_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
     <%= f.label :"(メイ)", class: "col-md-1 font-weight-bold text-right" %>
     <%= f.text_field :first_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
+    <% if @member.errors.include?(:last_name_kana) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name_kana,).first %></div>
+    <% end %>
+    <% if @member.errors.include?(:first_name_kana) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name_kana).first %></div>
+    <% end %>
   </div>
   <div class="row justify-content-center mt-3">
     <%= f.label :"電話番号(ハイフンなし)", class: "col-md-3 font-weight-bold" %>
     <%= f.text_field :phone_number, autocomplete: true, class: "col-md-5 form-control" %>
+    <% if @member.errors.include?(:phone_number) %>
+      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:phone_number).first %></div>
+    <% end %>
   </div>
   <div class="row justify-content-center mt-3">
     <%= f.submit "編集", class: "col-md-1 btn btn-success btn-sm" %>

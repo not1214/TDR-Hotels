@@ -13,9 +13,9 @@ class Public::MembersController < ApplicationController
   end
 
   def edit
-    @member = current_member
+    @member = Member.find_by(username: params[:username])
     if @member != current_member
-      flash[:alert] = "不正なアクセスです。"
+      flash.now[:alert] = "不正なアクセスです。"
       redirect_to "/#{@member.username}"
     end
   end
@@ -26,7 +26,7 @@ class Public::MembersController < ApplicationController
       flash[:notice] = "会員情報を更新しました。"
       redirect_to "/#{current_member.username}"
     else
-      flash[:alert] = "会員情報を更新できませんでした。"
+      flash.now[:alert] = "会員情報を更新できませんでした。"
       render :edit
     end
   end
@@ -37,6 +37,7 @@ class Public::MembersController < ApplicationController
   def withdraw
     @member = current_member
     @member.update(is_deleted: true)
+    flash[:notice] = "退会しました。"
     reset_session
     redirect_to root_path
   end

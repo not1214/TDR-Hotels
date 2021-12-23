@@ -1,2 +1,4 @@
 $("#review_comments").html("<%= j(render 'public/review_comments/index', review: @review) %>");
 $("#text_field").val('');
+
+$("#flash-message").html("<%= j(render 'layouts/flash') %>")
