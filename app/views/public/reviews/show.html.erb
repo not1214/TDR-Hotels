@@ -72,7 +72,9 @@
             <%= f.text_field :comment, placeholder: "コメント", id: "text_field", class: "form-control", style: "width: 90%; height: 26px; font-size:10px" %>
             <%= f.submit "送信", class: "btn btn-outline-success btn-sm", style: "font-size:10px"%>
           <% end %>
-          <%= render "public/review_comments/error", review_comment: @review_comment %>
+            <div id="comment-error">
+              <%= render "public/review_comments/error", review_comment: @review_comment %>
+            </div>
           </div>
         </div>
 
