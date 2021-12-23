@@ -1,3 +1,3 @@
-<% if review_comment.errors.include?(:comment) %>
-  <div class="col-md-5 offset-md-4" style="color: red;"><%= review_comment.errors.full_messages_for(:comment).first %></div>
+<% if comment.errors.include?(:comment) %>
+  <div class="col-md-5 offset-md-4" style="color: red;"><%= comment.errors.full_messages_for(:comment).first %></div>
 <% end %>

@@ -2,5 +2,4 @@ $("#favorite_on_hotel_<%= @hotel.id %>").html("<%= j(render 'public/favorites/fa
 
 $("#favorite_on_review_<%= @hotel.id %>").html("<%= j(render 'public/favorites/favorite-smallbtn', hotel: @hotel) %>");
 
-
 $('#flash-message').html("<%= j(render 'layouts/flash') %>");

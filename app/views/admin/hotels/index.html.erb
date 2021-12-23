@@ -14,6 +14,8 @@
 
     // 繰り返し処理でマーカーと吹き出しを複数表示させる
     for (var i = 0; i < markerData.length; i++) {
+      console.log(markerData[i]);
+    
       let id = markerData[i]['id']
 
       // 各地点の緯度経度を算出
@@ -31,7 +33,7 @@
       // 各地点の吹き出しを作成
       infoWindow[i] = new google.maps.InfoWindow({
         // 吹き出しの内容
-        content: markerData[i]['address']
+        content: '<a href="/admin/hotels/' + id + '">' + markerData[i]['address'] +'</a>'
       });
 
       // マーカーにクリックイベントを追加

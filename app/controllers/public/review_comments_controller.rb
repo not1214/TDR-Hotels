@@ -9,16 +9,16 @@ class Public::ReviewCommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "コメントを送信しました。"
     else
-      flash.now[:alert] = "コメントを送信できませんでした。再度入力してください。"
+      flash[:alert] = "コメントを送信できませんでした。再度入力してください。"
+      #@review_comment = ReviewComment.new
       render "error"
     end
-
   end
 
   def destroy
     @review = Review.find(params[:review_id])
     ReviewComment.find_by(id: params[:id]).destroy
-    flash[:alert] = "コメントを削除しました。"
+    flash[:notice] = "コメントを削除しました。"
   end
 
   private
