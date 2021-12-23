@@ -10,7 +10,6 @@ class Public::ReviewCommentsController < ApplicationController
       flash[:notice] = "コメントを送信しました。"
     else
       flash[:alert] = "コメントを送信できませんでした。再度入力してください。"
-      #@review_comment = ReviewComment.new
       render "error"
     end
   end

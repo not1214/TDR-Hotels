@@ -15,7 +15,7 @@
     // 繰り返し処理でマーカーと吹き出しを複数表示させる
     for (var i = 0; i < markerData.length; i++) {
       console.log(markerData[i]);
-    
+
       let id = markerData[i]['id']
 
       // 各地点の緯度経度を算出
@@ -33,7 +33,7 @@
       // 各地点の吹き出しを作成
       infoWindow[i] = new google.maps.InfoWindow({
         // 吹き出しの内容
-        content: '<a href="/admin/hotels/' + id + '">' + markerData[i]['address'] +'</a>'
+        content: '<a href="/admin/hotels/' + id + '">' + markerData[i]['hotel_name'] +'</a>'
       });
 
       // マーカーにクリックイベントを追加
@@ -78,7 +78,7 @@
           <div>
             <%= link_to admin_hotel_path(hotel) do %>
               <% hotel.hotel_images.first(1).each do |image| %>
-                <%= attachment_image_tag image, :image, :fill, 230, 200 %>
+                <%= attachment_image_tag image, :image, :fill, 225, 200 %>
               <% end %>
             <% end %>
           </div>
