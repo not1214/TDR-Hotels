@@ -6,6 +6,7 @@ class Public::HotelsController < ApplicationController
     @hotels = Hotel.all.page(params[:page]).per(9)
     @categories = Category.all
     @areas = Area.all
+    gon.hotels = Hotel.all
   end
 
   def show

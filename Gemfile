@@ -73,6 +73,7 @@ gem 'dotenv-rails' #環境変数化
 gem "geocoder"
 gem 'devise-i18n'
 gem 'rails-i18n'
+gem "gon"
 
 group :production do
   gem "mysql2"

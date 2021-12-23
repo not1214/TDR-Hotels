@@ -1,3 +1,60 @@
+<script type="text/javascript">
+  let map
+  let geocoder
+  let marker = []; // マーカーを複数表示させたいので、配列化
+  let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
+  const hotels = gon.hotels; // コントローラーで定義したインスタンス変数を変数に代入
+
+  function initMap(){
+      // geocoderを初期化
+      geocoder = new google.maps.Geocoder()
+      // mapの初期位置設定
+      map = new google.maps.Map(document.getElementById('map-index'), {
+      center: {lat: 35.6361543, lng: 139.8838749},
+      zoom: 14
+      });
+      // forは繰り返し処理
+      // 変数iを0と定義し、
+      // その後gonで定義したhotels分繰り返し加える処理を行う
+      for (let i = 0; i < hotels.length; i++) {
+          // geocoderで addressの経緯緯度取得
+          // hotels[i]は変数iのホテルを取得している
+          geocoder.geocode( { 'address': hotels[i].prefecture_code + hotels[i].city + hotels[i].street }, function(results, status) {
+              // statusがOKであれば
+          if (status == 'OK') {
+      　　　　// map.setCenterで地図が移動
+              map.setCenter(results[0].geometry.location);
+              marker[i] = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+              });
+              // 変数iを変数idに代入
+              let id = hotels[i]['id']
+              // infoWindowは吹き出し
+              infoWindow[i] = new google.maps.InfoWindow({
+              // contentで中身を指定
+              // 今回は文字にリンクを貼り付けた形で表示
+              content: `<a href='/admin/hotels/${id}'>${hotels[i].hotel_name}</a>`
+              });
+              // markerがクリックされた時、
+              marker[i].addListener("click", function(){
+                  // infoWindowを表示
+                  infoWindow[i].open(map, marker[i]);
+              });
+          } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+          }
+          });
+      }
+  }
+
+  function codeAddress(){
+      // 入力を取得
+      let inputAddress = document.getElementById('address').value;
+      // geocodingしたあとmapを移動
+  }
+</script>
+
 <div class="container-fluid">
   <div class="row justify-content-center mb-3">
     <h3 style="border-bottom: 2px solid #FF9933">浦安市のホテル一覧</h3>
@@ -11,6 +68,8 @@
       <div class="mt-3">
         <%= render "layouts/area_search", areas: @areas %>
       </div>
+      <div class="mt-3" id="map-index"></div>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap"></script>
     </div>
 
     <div class="col-md-9">
