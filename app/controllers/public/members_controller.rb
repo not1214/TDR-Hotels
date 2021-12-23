@@ -15,7 +15,7 @@ class Public::MembersController < ApplicationController
   def edit
     @member = Member.find_by(username: params[:username])
     if @member != current_member
-      flash.now[:alert] = "不正なアクセスです。"
+      flash[:alert] = "不正なアクセスです。"
       redirect_to "/#{@member.username}"
     end
   end

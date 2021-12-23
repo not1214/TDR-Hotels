@@ -3,7 +3,7 @@ class Admin::PicturesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @pictures = Picture.all.page(params[:page]).per(15)
+    @pictures = Picture.all.page(params[:page]).per(18)
   end
 
   def new
@@ -16,7 +16,7 @@ class Admin::PicturesController < ApplicationController
       flash[:notice] = "写真を登録しました。"
       redirect_to admin_pictures_path
     else
-      flash[:alert] = "写真を登録できませんでした。再度入力してください。"
+      flash.now[:alert] = "写真を登録できませんでした。再度入力してください。"
       render :new
     end
   end

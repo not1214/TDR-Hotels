@@ -33,7 +33,11 @@ class Public::ReviewsController < ApplicationController
 
   def edit
     @hotel = Hotel.find_by(id: params[:hotel_id])
-    @review = current_member.reviews.find(params[:id])
+    @review = Review.find(params[:id])
+    if @review.member_id != current_member.id
+      flash[:alert] = "不正なアクセスです。"
+      redirect_to hotel_review_path(@hotel,@review)
+    end
   end
 
   def update

@@ -7,9 +7,9 @@ class Public::ReviewCommentsController < ApplicationController
     @comment = current_member.review_comments.new(review_comment_params)
     @comment.review_id = @review.id
     if @comment.save
-      flash[:notice] = "コメントを送信しました。"
+      flash.now[:notice] = "コメントを送信しました。"
     else
-      flash[:alert] = "コメントを送信できませんでした。再度入力してください。"
+      flash.now[:alert] = "コメントを送信できませんでした。再度入力してください。"
       render "error"
     end
   end

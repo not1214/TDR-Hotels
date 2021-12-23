@@ -17,7 +17,7 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = "カテゴリを登録しました"
+      flash[:notice] = "カテゴリを登録しました。"
       redirect_to admin_categories_path
     else
       flash.now[:alert] = "カテゴリを登録できませんでした。再度入力してください。"
@@ -43,13 +43,9 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    if @category.destroy
-      flash[:notice] = "カテゴリを削除しました。"
-      redirect_to admin_categories_path
-    else
-      @categories = Category.all
-      render :index
-    end
+    @category.destroy
+    flash[:notice] = "カテゴリを削除しました。"
+    redirect_to admin_categories_path
   end
 
   private

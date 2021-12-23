@@ -3,7 +3,7 @@ class Public::HotelsController < ApplicationController
   before_action :authenticate_member!, except:[:index]
 
   def index
-    @hotels = Hotel.all.page(params[:page]).per(9)
+    @hotels = Hotel.all.page(params[:page]).per(12)
     @categories = Category.all
     @areas = Area.all
     gon.hotels = Hotel.all

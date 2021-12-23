@@ -1,60 +1,13 @@
-<script type="text/javascript">
-  let map;
-  let marker = []; // マーカーを複数表示させたいので、配列化
-  let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
-  let markerData = gon.hotels; // コントローラーで定義したインスタンス変数を変数に代入
-
-  function initMap() {
-    geocoder = new google.maps.Geocoder()
-
-    map = new google.maps.Map(document.getElementById('map-index'), {
-      center: { lat: 35.63676467540053, lng: 139.88400364602666 }, // 東京タワーを中心に表示させている
-      zoom: 12,
-    });
-
-    // 繰り返し処理でマーカーと吹き出しを複数表示させる
-    for (var i = 0; i < markerData.length; i++) {
-      console.log(markerData[i]);
-
-      let id = markerData[i]['id']
-
-      // 各地点の緯度経度を算出
-      markerLatLng = new google.maps.LatLng({
-        lat: markerData[i]['latitude'],
-        lng: markerData[i]['longitude']
-      });
-
-      // 各地点のマーカーを作成
-      marker[i] = new google.maps.Marker({
-        position: markerLatLng,
-        map: map
-      });
-
-      // 各地点の吹き出しを作成
-      infoWindow[i] = new google.maps.InfoWindow({
-        // 吹き出しの内容
-        content: '<a href="/admin/hotels/' + id + '">' + markerData[i]['hotel_name'] +'</a>'
-      });
-
-      // マーカーにクリックイベントを追加
-      markerEvent(i);
-    }
-  }
-
-  // マーカーをクリックしたら吹き出しを表示
-  function markerEvent(i) {
-    marker[i].addListener('click', function () {
-      infoWindow[i].open(map, marker[i]);
-    });
-  }
-</script>
+<%= render "layouts/admin-map-index" %>
 
 <div class="container-fluid">
+
   <div class="row justify-content-center mb-3">
     <h3 style="border-bottom: 2px solid #FF9933">浦安市のホテル一覧</h3>
   </div>
 
   <div class="row justify-content-center">
+
     <div class="col-md-3 d-flex flex-column">
       <div>
         <%= render "layouts/category_search", categories: @categories %>
@@ -63,22 +16,19 @@
         <%= render "layouts/area_search", areas: @areas %>
       </div>
       <div class="mt-3" id="map-index"></div>
-      　<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap"></script>
-
     </div>
 
     <div class="col-md-9">
       <div class="text-right mr-5 mb-2">
         <%= link_to "ホテルを登録する", new_admin_hotel_path, class: "btn btn-info" %>
       </div>
-
       <div class="d-flex flex-wrap">
         <% @hotels.each do |hotel| %>
         <div class="d-flex flex-column mb-3 mr-3">
           <div>
             <%= link_to admin_hotel_path(hotel) do %>
               <% hotel.hotel_images.first(1).each do |image| %>
-                <%= attachment_image_tag image, :image, :fill, 225, 200 %>
+                <%= attachment_image_tag image, :image, :fill, 230, 200 %>
               <% end %>
             <% end %>
           </div>
@@ -90,7 +40,8 @@
         <% end %>
       </div>
       <div class="d-flex justify-content-center mt-2"><%= paginate @hotels %></div>
-
     </div>
+
   </div>
+
 </div>

@@ -37,3 +37,5 @@ ja:
         email: メールアドレス
         subject: 件名
         message: メッセージ
+      review_comment:
+        comment: コメント
