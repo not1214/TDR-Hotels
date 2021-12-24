@@ -4,7 +4,7 @@
       <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
       <div><%= @member.username %></div>
       <p class="introduction" style="font-size:10px"><%= @member.introduction %></p>
-      <p><%= link_to "編集する", "/#{current_member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>
+      <p><%= link_to "編集する", "/#{current_member.username}/edit", class: "btn btn-info", style: "font-size: 10px" %></p>
     </div>
 
     <div class="col-md-9">

@@ -11,7 +11,7 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
     @areas = Area.all
     @category = Category.find(params[:id])
-    @category_hotel = Hotel.where(category_id: @category.id)
+    @category_hotel = Hotel.where(category_id: @category.id).page(params[:page]).per(12)
   end
 
   def create
