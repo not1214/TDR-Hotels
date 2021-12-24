@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
 
     resources :categories, only: [:index, :create, :edit, :update, :destroy, :show]
-    resources :areas, only: [:index, :create, :edit, :update, :show]
+    resources :areas, only: [:index, :create, :edit, :update, :destroy, :show]
     resources :pictures, only: [:index, :new, :create, :destroy]
 
     #検索機能
