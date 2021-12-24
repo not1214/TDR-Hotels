@@ -41,6 +41,13 @@ class Admin::AreasController < ApplicationController
     end
   end
 
+  def destroy
+    @area = Area.find(params[:id])
+    @area.destroy
+    flash[:notice] = "カテゴリを削除しました。"
+    redirect_to admin_areas_path
+  end
+
   private
 
     def area_params
