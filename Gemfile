@@ -70,11 +70,12 @@ gem "refile", require: "refile/rails", github: 'manfe/refile' #画像投稿用ge
 gem "refile-mini_magick" #画像加工用gem
 gem 'kaminari','~> 1.2.1' #ページネーション
 gem 'dotenv-rails' #環境変数化
-gem "geocoder"
-gem 'devise-i18n'
-gem 'rails-i18n'
-gem "gon"
+gem "geocoder"  #経度緯度取得して地図表示
+gem 'devise-i18n'  #deviseの日本語化
+gem 'rails-i18n'  #railsの日本語化（モデル等）
+gem "gon"  #地図表示にてjavascriptに変数を渡せる
 
+#本番環境
 group :production do
   gem "mysql2"
 end

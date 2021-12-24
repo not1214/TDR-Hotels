@@ -18,7 +18,7 @@ class Public::FavoritesController < ApplicationController
     if @favorite.present?
       @favorite.destroy
       flash[:notice] = nil
-      flash[:alert] = "お気に入りから削除しました。"
+      flash.now[:alert] = "お気に入りから削除しました。"
     end
   end
 

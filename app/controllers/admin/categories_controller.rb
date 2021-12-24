@@ -11,13 +11,13 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
     @areas = Area.all
     @category = Category.find(params[:id])
-    @category_hotel = Hotel.where(category_id: @category.id)
+    @category_hotel = Hotel.where(category_id: @category.id).page(params[:page]).per(12)
   end
 
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = "カテゴリを登録しました"
+      flash[:notice] = "カテゴリを登録しました。"
       redirect_to admin_categories_path
     else
       flash.now[:alert] = "カテゴリを登録できませんでした。再度入力してください。"
@@ -43,13 +43,9 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    if @category.destroy
-      flash[:notice] = "カテゴリを削除しました。"
-      redirect_to admin_categories_path
-    else
-      @categories = Category.all
-      render :index
-    end
+    @category.destroy
+    flash[:notice] = "カテゴリを削除しました。"
+    redirect_to admin_categories_path
   end
 
   private

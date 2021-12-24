@@ -1,11 +1,12 @@
 <div class="container-fluid">
+
   <div class="row justify-content-center mb-3">
     <h3 style="border-bottom: 2px solid #FF9933">ホテルランキング</h3>
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-md-5">
-      <h5><span style="border-bottom: 2px solid #FF9933">評価が高いホテル</span></h5>
+    <div class="col-md-5 offset-md-1">
+      <h5><span style="border-bottom: 2px solid #FF9933">おすすめホテル</span></h5>
       <% last_rate = 0 %>
       <% rank = 1 %>
       <% @rate_ranks.each.with_index(1) do |hotel, i|%>
@@ -16,9 +17,9 @@
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
-                <div style="font-size:14px"><%= hotel.hotel_name %></div>
+                <div style="font-size:16px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 350, 250 %></div>
                 <% end %>
               <% end %>
             </div>
@@ -37,9 +38,9 @@
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
-                <div style="font-size:14px"><%= hotel.hotel_name %></div>
+                <div style="font-size:16px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 350, 250 %></div>
                 <% end %>
               <% end %>
             </div>
@@ -67,9 +68,9 @@
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
-                <div style="font-size:14px"><%= hotel.hotel_name %></div>
+                <div style="font-size:16px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 350, 250 %></div>
                 <% end %>
               <% end %>
             </div>
@@ -89,9 +90,9 @@
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
               <%= link_to hotel_path(hotel) do %>
-                <div style="font-size:14px"><%= hotel.hotel_name %></div>
+                <div style="font-size:16px"><%= hotel.hotel_name %></div>
                 <% hotel.hotel_images.first(1).each do |image| %>
-                  <div><%= attachment_image_tag image, :image, :fill, 250, 200 %></div>
+                  <div><%= attachment_image_tag image, :image, :fill, 350, 250 %></div>
                 <% end %>
               <% end %>
             </div>
@@ -107,6 +108,6 @@
         <% end %>
       <% end %>
     </div>
-
   </div>
+
 </div>

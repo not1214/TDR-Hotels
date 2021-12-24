@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  #管理者用deviseのルーティング（/admin/sign_in）
-  devise_for :admin, skip: [:passwords, :registrations,], controllers: {
-    sessions: "admin/sessions"
-  }
-
   #会員用deviseのルーティング（/members/sign_in）
   devise_for :members, skip: [:passwords,], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
+  }
+
+  #管理者用deviseのルーティング（/admin/sign_in）
+  devise_for :admin, skip: [:passwords, :registrations,], controllers: {
+    sessions: "admin/sessions"
   }
 
   #管理者用ルーティング
