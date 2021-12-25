@@ -13,7 +13,7 @@
         <%= attachment_image_tag image, :image, :fill, 600, 300 %>
       <% end %>
       </div>
-      <p class="caption"><%= @hotel.caption %></p>
+      <p class="caption text-break"><%= @hotel.caption %></p>
     </div>
   </div>
 
@@ -51,8 +51,8 @@
       <div><%= link_to "ホテル情報を編集", edit_admin_hotel_path(@hotel), class: "btn btn-dark ml-2" %></div>
     </div>
   </div>
-  <div class="row text-right">
-    <%= link_to "ホテル一覧へ戻る", admin_hotels_path %>
+  <div class="row justify-content-end mt-2">
+    <%= link_to "ホテル一覧へ戻る", admin_hotels_path, class: "mr-3" %>
   </div>
 
 </div>

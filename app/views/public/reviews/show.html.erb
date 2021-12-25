@@ -17,9 +17,16 @@
 
         <div class="row mt-3">
           <div class="col-md-1 mt-3">
-          <%= link_to "/#{@review.member.username}" do %>
-            <div class="text-center"><%= attachment_image_tag @review.member, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %></div>
-            <div class="text-center" style="font-size:12px"><%= @review.member.username %></div>
+          <% if @review.member_id == current_member.id %>
+            <%= link_to mypage_path do %>
+              <div class="text-center"><%= attachment_image_tag @review.member, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %></div>
+              <div class="text-center" style="font-size:12px"><%= @review.member.username %></div>
+            <% end %>
+          <% else %>
+            <%= link_to "/#{@review.member.username}" do %>
+              <div class="text-center"><%= attachment_image_tag @review.member, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %></div>
+              <div class="text-center" style="font-size:12px"><%= @review.member.username %></div>
+            <% end %>
           <% end %>
           </div>
           <div class="balloon col-md-10">
@@ -55,7 +62,7 @@
                       });
                     </script>
                 </div>
-                <h6 style="font-size: 14px"><%= link_to @review.title, hotel_review_path(@hotel, @review) %></h6>
+                <h6 class="text-break" style="font-size: 14px"><%= link_to @review.title, hotel_review_path(@hotel, @review) %></h6>
                 <p class="text-break" style="font-size: 13px"><%= @review.content %></p>
               </div>
             </div>

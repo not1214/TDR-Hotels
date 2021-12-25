@@ -21,7 +21,7 @@
     <div class="col-md-9">
       <div class="d-flex flex-wrap">
         <% @category_hotel.each do |hotel| %>
-        <div class="d-flex flex-column mb-3 mr-3">
+        <div class="d-flex flex-column mb-3 mr-md-2 mr-lg-3">
           <div>
             <%= link_to hotel_path(hotel) do %>
               <% hotel.hotel_images.first(1).each do |image| %>

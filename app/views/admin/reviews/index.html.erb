@@ -50,8 +50,8 @@
                       });
                     </script>
                 </div>
-                <h6 style="font-size: 14px"><%= link_to review.title, admin_hotel_review_path(@hotel, review) %></h6>
-                <p class="text-break" style="font-size: 13px"><%= review.content %></p>
+                <h6 style="font-size: 14px"><%= link_to review.title.truncate(20), admin_hotel_review_path(@hotel, review) %></h6>
+                <p class="text-break" style="font-size: 13px"><%= review.content.truncate(40) %></p>
                 <div class="text-right" style="font-size: 11px">コメント数：<%= review.review_comments.count %> 件</div>
               </div>
             </div>
