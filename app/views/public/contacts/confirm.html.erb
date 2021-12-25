@@ -29,7 +29,7 @@
     <%= f.hidden_field :email %>
     <%= f.hidden_field :subject %>
     <%= f.hidden_field :message %>
-    <%= f.submit '送信する', class: "col-md-auto btn btn-success" %>
+    <%= f.submit '送信', class: "col-md-auto btn btn-success" %>
   <% end %>
 
   <%= form_with model: @contact, url: back_contacts_path, local: true do |f| %>

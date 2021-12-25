@@ -54,6 +54,12 @@ header {
   color: black !important;
 }
 
+@media screen and (max-width:1440px) {
+  .hotel-image:last-child {
+  display: none !important;
+  }
+}
+
 main {
   margin: 25px 0;
 }

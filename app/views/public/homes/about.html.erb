@@ -3,7 +3,7 @@
 <div class="container-fluid">
 
   <div class="row justify-content-center">
-    <div class="col-md-3 d-flex flex-column">
+    <div class="col-md-3 col-xl-3 d-flex flex-column">
       <div>
         <%= render "layouts/category_search", categories: @categories %>
       </div>
@@ -23,15 +23,15 @@
       </p>
       <div class="d-flex flex-wrap">
         <% @hotels.each do |hotel| %>
-        <div class="d-flex flex-column mb-3 mr-3">
+        <div class="hotel-image d-flex flex-column mb-3 mr-3">
           <div>
             <% hotel.hotel_images.first(1).each do |image| %>
               <%= attachment_image_tag image, :image, :fill, 225, 200 %>
             <% end %>
           </div>
-          <div style="font-size: 13px; width: 225px"><strong><%= hotel.hotel_name %></strong></div>
-          <div style="font-size: 11px">カテゴリー名：<%= hotel.category.category_name %></div>
-          <div style="font-size: 11px">エリア名：<%= hotel.area.area_name %></div>
+          <div style="font-size: 13px; width:225px"><strong><%= hotel.hotel_name %></strong></div>
+          <div style="font-size: 11px; width:225px">カテゴリ：<%= hotel.category.category_name %></div>
+          <div style="font-size: 11px; width:225px">エリア：<%= hotel.area.area_name %></div>
           <div style="font-size: 11px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
         </div>
         <% end %>

@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row justify-content-center mb-3">
-    <h3 style="border-bottom: 2px solid #FF9933">カテゴリー編集</h3>
+    <h3 style="border-bottom: 2px solid #FF9933">カテゴリ編集</h3>
   </div>
 
   <div class="row justify-content-center">
@@ -8,7 +8,7 @@
     <%= form_with model: @category, url: admin_category_path(@category), local: true do |f| %>
     <table class="table table-borderless">
       <tr>
-        <th width="150">カテゴリー名</th>
+        <th width="150">カテゴリ名</th>
         <td width="300"><%= f.text_field :category_name, autofocus: true, autocomplete: "category_name", class: "form-control" %></td>
         <td><%= f.submit "変更", class: "btn btn-success" %></td>
       </tr>

@@ -4,7 +4,7 @@
       <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
       <div><%= @member.username %></div>
       <p class="introduction" style="font-size:10px"><%= @member.introduction %></p>
-      <p><%= link_to "編集する", "/#{current_member.username}/edit", class: "btn btn-info", style: "font-size: 10px" %></p>
+      <p><%= link_to "編集", "/#{current_member.username}/edit", class: "btn btn-info", style: "font-size: 10px" %></p>
     </div>
 
     <div class="col-md-9">
@@ -19,9 +19,9 @@
               <% end %>
             <% end %>
           </div>
-          <div style="font-size: 13px" width="250"><strong><%= hotel.hotel_name %></strong></div>
-          <div style="font-size: 11px">カテゴリー：<%= hotel.category.category_name %></div>
-          <div style="font-size: 11px">エリア：<%= hotel.area.area_name %></div>
+          <div style="font-size: 13px; width:225px"><strong><%= hotel.hotel_name %></strong></div>
+          <div style="font-size: 11px; width:225px">カテゴリ：<%= hotel.category.category_name %></div>
+          <div style="font-size: 11px; width:225px">エリア：<%= hotel.area.area_name %></div>
           <div style="font-size: 11px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
         </div>
         <% end %>

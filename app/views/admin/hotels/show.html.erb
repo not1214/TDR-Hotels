@@ -26,7 +26,7 @@
           <td><%= text_url_to_link(h(@hotel.website)).html_safe %></td>
         </tr>
         <tr>
-          <th>カテゴリー</th>
+          <th>カテゴリ</th>
           <td><%= @hotel.category.category_name %></td>
         </tr>
         <tr>
@@ -47,9 +47,12 @@
 
   <div class="row mt-3">
     <div class="col-md-auto mx-auto d-flex">
-      <div><%= link_to "レビューを閲覧する", admin_hotel_reviews_path(@hotel), class: "btn btn-primary" %></div>
-      <div><%= link_to "情報を編集する", edit_admin_hotel_path(@hotel), class: "btn btn-dark ml-2" %></div>
+      <div><%= link_to "レビュー閲覧", admin_hotel_reviews_path(@hotel), class: "btn btn-primary" %></div>
+      <div><%= link_to "ホテル情報を編集", edit_admin_hotel_path(@hotel), class: "btn btn-dark ml-2" %></div>
     </div>
+  </div>
+  <div class="row text-right">
+    <%= link_to "ホテル一覧へ戻る", admin_hotels_path %>
   </div>
 
 </div>

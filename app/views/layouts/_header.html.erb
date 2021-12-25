@@ -31,25 +31,25 @@
         <ul class="nav nav-tabs mt-2 justify-content-center">
         <!--会員がログインした場合-->
         <% if member_signed_in? %>
-          <li class="nav-items"><%= link_to "MY PAGE", mypage_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "HOTEL", hotels_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "RANKING", ranking_hotels_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "GALLERY", pictures_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "LOG OUT", destroy_member_session_path, method: :delete, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "マイページ", mypage_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ホテル", hotels_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ランキング", ranking_hotels_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ギャラりー", pictures_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "nav-link active" %></li>
         <!--管理者がログインした場合-->
         <% elsif admin_signed_in? %>
-          <li class="nav-items"><%= link_to "HOTEL", admin_hotels_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "CATEGORY", admin_categories_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "AREA", admin_areas_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "MEMBER", admin_members_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "GALLERY", admin_pictures_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "LOG OUT", destroy_admin_session_path, method: :delete, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ホテル", admin_hotels_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "カテゴリ", admin_categories_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "エリア", admin_areas_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "メンバー", admin_members_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ギャラリー", admin_pictures_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link active" %></li>
         <!--ログインしていない場合-->
         <% else %>
-          <li class="nav-items"><%= link_to "TOP", root_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "ABOUT", about_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "SIGN UP", new_member_registration_path, class: "nav-link active" %></li>
-          <li class="nav-items"><%= link_to "LOG IN", new_member_session_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "トップ", root_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "アバウト", about_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "サインアップ", new_member_registration_path, class: "nav-link active" %></li>
+          <li class="nav-items"><%= link_to "ログイン", new_member_session_path, class: "nav-link active" %></li>
         <% end %>
         </ul>
 

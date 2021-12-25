@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row justify-content-center mb-3">
-    <h3 style="border-bottom: 2px solid #FF9933">カテゴリー一覧＆登録</h3>
+    <h3 style="border-bottom: 2px solid #FF9933">カテゴリ一覧＆登録</h3>
   </div>
 
   <%= form_with model: @category, url: admin_categories_path, local: true do |f| %>
   <div class="row justify-content-center mt-5">
-    <%= f.label :"カテゴリー名", class: "col-md-auto font-weight-bold mr-3" %>
+    <%= f.label :"カテゴリ名", class: "col-md-auto font-weight-bold mr-3" %>
     <%= f.text_field :category_name, autofocus: true, autocomplete: "category_name", class: "col-md-3 form-control" %>
     <%= f.submit "登録", class: "col-md-auto btn btn-success ml-3" %>
   </div>
@@ -19,7 +19,7 @@
 
       <table class="table table-bordered table-striped">
         <tr>
-          <th width="400" style="background-color: #99FFCC">カテゴリー名</th>
+          <th width="400" style="background-color: #99FFCC">カテゴリ名</th>
           <td width="150" style="background-color: #99FFCC"></td>
         </tr>
       <% @categories.each do |category| %>
