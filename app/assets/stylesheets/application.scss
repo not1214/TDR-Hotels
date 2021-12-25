@@ -54,6 +54,7 @@ header {
   color: black !important;
 }
 
+/*ノートパソコン(L)サイズ以下でのabout画面表示*/
 @media screen and (max-width:1440px) {
   .hotel-image:last-child {
   display: none !important;
@@ -80,6 +81,25 @@ footer {
 
 .nav-items {
   font-size: 12px;
+}
+
+/*ノートパソコンのサイズ以下でのTOP画面表示*/
+@media screen and (max-width:1024px) {
+  .slider-top {
+  width: 700px !important;
+  height: 550px !important;
+  }
+  .slick-dots {
+    bottom: 4%;
+    z-index: +1;
+    button:before {
+    color: white !important;
+    }
+  }
+  .slider-image {
+    width: 700px !important;
+    height: 550px !important;
+  }
 }
 
 /*ホテルの詳細画面やレビュー画面でのGoogleMap*/
@@ -261,4 +281,15 @@ footer {
   border-radius: 15px !important;    /*角を丸くする*/
   // border-top-right-radius: 15px !important;
   // border-bottom-right-radius: 15px !important;
+}
+
+.hotel-first-image {
+  width: 230px;
+  height: 150px;
+}
+
+@media screen and (max-width:1024px) {
+  .hotel-first-image {
+    width: 200px;
+  }
 }
