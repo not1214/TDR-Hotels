@@ -1,5 +1,4 @@
 class Admin::SearchesController < ApplicationController
-
   before_action :authenticate_admin!
 
   def hotel_search
@@ -8,5 +7,4 @@ class Admin::SearchesController < ApplicationController
     @areas = Area.all
     gon.hotels = Hotel.all
   end
-
 end

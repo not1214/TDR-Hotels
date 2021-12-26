@@ -1,5 +1,4 @@
 class Review < ApplicationRecord
-
   belongs_to :hotel
   belongs_to :member
 
@@ -9,6 +8,4 @@ class Review < ApplicationRecord
 
   validates :title, presence: true
   validates :rate, presence: true
-
-
 end

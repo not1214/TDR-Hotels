@@ -1,5 +1,4 @@
 class Public::ReviewsController < ApplicationController
-
   before_action :authenticate_member!
 
   def index
@@ -21,13 +20,13 @@ class Public::ReviewsController < ApplicationController
   def create
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
-    #binding.pry
+    # binding.pry
     @review.hotel_id = @hotel.id
     if @review.save
-      flash[:notice] = "レビューを投稿しました。"
+      flash[:notice] = 'レビューを投稿しました。'
       redirect_to hotel_reviews_path(@hotel)
     else
-      flash.now[:alert] = "レビューを投稿できませんでした。もう一度入力してください。"
+      flash.now[:alert] = 'レビューを投稿できませんでした。もう一度入力してください。'
       render :new
     end
   end
@@ -36,8 +35,8 @@ class Public::ReviewsController < ApplicationController
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.find(params[:id])
     if @review.member_id != current_member.id
-      flash[:alert] = "不正なアクセスです。"
-      redirect_to hotel_review_path(@hotel,@review)
+      flash[:alert] = '不正なアクセスです。'
+      redirect_to hotel_review_path(@hotel, @review)
     end
   end
 
@@ -45,10 +44,10 @@ class Public::ReviewsController < ApplicationController
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.find(params[:id])
     if @review.update(review_params)
-      flash[:notice] = "レビューを編集しました。"
-      redirect_to hotel_review_path(@hotel,@review)
+      flash[:notice] = 'レビューを編集しました。'
+      redirect_to hotel_review_path(@hotel, @review)
     else
-      flash.now[:alert] = "レビューを編集できませんでした。再度入力してください。"
+      flash.now[:alert] = 'レビューを編集できませんでした。再度入力してください。'
       render :edit
     end
   end
@@ -57,7 +56,7 @@ class Public::ReviewsController < ApplicationController
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.find(params[:id])
     @review.destroy
-    flash[:notice] = "レビューを削除しました。"
+    flash[:notice] = 'レビューを削除しました。'
     redirect_to hotel_reviews_path(@hotel)
   end
 
@@ -66,5 +65,4 @@ class Public::ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :content, :review_image, :rate)
   end
-
 end

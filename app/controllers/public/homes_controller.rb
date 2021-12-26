@@ -1,5 +1,4 @@
 class Public::HomesController < ApplicationController
-
   def top
     @categories = Category.all
     @areas = Area.all
@@ -11,5 +10,4 @@ class Public::HomesController < ApplicationController
     @hotels = Hotel.limit(5).order(created_at: :desc)
     gon.hotels = Hotel.all
   end
-
 end

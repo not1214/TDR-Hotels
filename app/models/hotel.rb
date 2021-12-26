@@ -1,13 +1,12 @@
 class Hotel < ApplicationRecord
-
-  #住所から緯度経度取得
+  # 住所から緯度経度取得
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :hotel_images, dependent: :destroy
-  accepts_attachments_for :hotel_images, attachment: :image  #refileで画像複数枚アップロード
+  accepts_attachments_for :hotel_images, attachment: :image # refileで画像複数枚アップロード
   belongs_to :category
   belongs_to :area
 
@@ -20,23 +19,21 @@ class Hotel < ApplicationRecord
   validates :address, presence: true
   validates :hotel_images, presence: true
 
-
-  #評価の平均点
+  # 評価の平均点
   def avg_rate
-    unless self.reviews.empty?
-      reviews.average(:rate).round(1)
-    else
+    if reviews.empty?
       0.0
+    else
+      reviews.average(:rate).round(1)
     end
   end
 
-  #ホテル名から検索
+  # ホテル名から検索
   def self.search(search)
     if search
-      Hotel.where("hotel_name LIKE(?)", "%#{search}%")
+      Hotel.where('hotel_name LIKE(?)', "%#{search}%")
     else
       Hotel.all
     end
   end
-
 end

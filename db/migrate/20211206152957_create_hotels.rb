@@ -1,7 +1,6 @@
 class CreateHotels < ActiveRecord::Migration[5.2]
   def change
     create_table :hotels do |t|
-
       t.timestamps
       t.integer :category_id, null: false
       t.integer :area_id, null: false

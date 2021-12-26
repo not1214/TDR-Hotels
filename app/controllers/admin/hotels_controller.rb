@@ -1,5 +1,4 @@
 class Admin::HotelsController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
@@ -19,10 +18,10 @@ class Admin::HotelsController < ApplicationController
   def create
     @hotel = Hotel.new(hotel_params)
     if @hotel.save
-      flash[:notice] = "ホテル情報を登録しました。"
+      flash[:notice] = 'ホテル情報を登録しました。'
       redirect_to admin_hotel_path(@hotel)
     else
-      flash.now[:alert] = "ホテル情報を登録できませんでした。"
+      flash.now[:alert] = 'ホテル情報を登録できませんでした。'
       render :new
     end
   end
@@ -41,10 +40,10 @@ class Admin::HotelsController < ApplicationController
   def update
     @hotel = Hotel.find(params[:id])
     if @hotel.update(hotel_params)
-      flash[:notice] = "ホテル情報を更新しました。"
+      flash[:notice] = 'ホテル情報を更新しました。'
       redirect_to admin_hotel_path(@hotel)
     else
-      flash.now[:alert] = "ホテル情報を更新できませんでした。再度入力してください。"
+      flash.now[:alert] = 'ホテル情報を更新できませんでした。再度入力してください。'
       render :edit
     end
   end
@@ -52,7 +51,7 @@ class Admin::HotelsController < ApplicationController
   private
 
   def hotel_params
-    params.require(:hotel).permit(:category_id, :area_id, :hotel_name, :price_range,:website, :caption, :address ,:latitude, :longitude, hotel_images_images: [])
+    params.require(:hotel).permit(:category_id, :area_id, :hotel_name, :price_range, :website, :caption, :address,
+                                  :latitude, :longitude, hotel_images_images: [])
   end
-
 end

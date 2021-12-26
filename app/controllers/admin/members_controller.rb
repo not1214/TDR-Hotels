@@ -1,5 +1,4 @@
 class Admin::MembersController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
@@ -17,12 +16,12 @@ class Admin::MembersController < ApplicationController
 
   def update
     @member = Member.find_by(username: params[:username])
-    #binding.pry
+    # binding.pry
     if @member.update(member_params)
-      flash[:notice] = "会員情報を更新しました。"
+      flash[:notice] = '会員情報を更新しました。'
       redirect_to "/admin/#{@member.username}"
     else
-      flash.now[:alert] = "会員情報を更新できませんでした。"
+      flash.now[:alert] = '会員情報を更新できませんでした。'
       render :edit
     end
   end
@@ -30,7 +29,7 @@ class Admin::MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:username, :last_name, :first_name, :last_name_kana, :first_name_kana, :phone_number, :profile_image, :introduction, :is_deleted)
+    params.require(:member).permit(:username, :last_name, :first_name, :last_name_kana, :first_name_kana,
+                                   :phone_number, :profile_image, :introduction, :is_deleted)
   end
-
 end

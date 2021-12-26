@@ -1,5 +1,4 @@
 class Admin::AreasController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
@@ -16,12 +15,12 @@ class Admin::AreasController < ApplicationController
 
   def create
     @area = Area.new(area_params)
-    #binding.pry
+    # binding.pry
     if @area.save
-      flash[:notice] = "エリアを登録しました。"
+      flash[:notice] = 'エリアを登録しました。'
       redirect_to admin_areas_path
     else
-      flash.now[:alert] = "エリアを登録できませんでした。再度入力してください。"
+      flash.now[:alert] = 'エリアを登録できませんでした。再度入力してください。'
       @areas = Area.all
       render :index
     end
@@ -34,10 +33,10 @@ class Admin::AreasController < ApplicationController
   def update
     @area = Area.find(params[:id])
     if @area.update(area_params)
-      flash[:notice] = "エリアを更新しました。"
+      flash[:notice] = 'エリアを更新しました。'
       redirect_to admin_areas_path
     else
-      flash.now[:alert] = "エリアを更新できませんでした。再度入力してください。"
+      flash.now[:alert] = 'エリアを更新できませんでした。再度入力してください。'
       render :edit
     end
   end
@@ -45,14 +44,13 @@ class Admin::AreasController < ApplicationController
   def destroy
     @area = Area.find(params[:id])
     @area.destroy
-    flash[:notice] = "カテゴリを削除しました。"
+    flash[:notice] = 'カテゴリを削除しました。'
     redirect_to admin_areas_path
   end
 
   private
 
-    def area_params
-      params.require(:area).permit(:area_name)
-    end
-
+  def area_params
+    params.require(:area).permit(:area_name)
+  end
 end

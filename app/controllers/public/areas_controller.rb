@@ -1,5 +1,4 @@
 class Public::AreasController < ApplicationController
-
   def show
     @categories = Category.all
     @areas = Area.all
@@ -7,5 +6,4 @@ class Public::AreasController < ApplicationController
     @area_hotel = Hotel.where(area_id: @area.id).page(params[:page]).per(12)
     gon.hotels = Hotel.all
   end
-
 end

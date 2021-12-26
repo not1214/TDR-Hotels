@@ -1,5 +1,4 @@
 class Admin::CategoriesController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
@@ -17,10 +16,10 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = "カテゴリを登録しました。"
+      flash[:notice] = 'カテゴリを登録しました。'
       redirect_to admin_categories_path
     else
-      flash.now[:alert] = "カテゴリを登録できませんでした。再度入力してください。"
+      flash.now[:alert] = 'カテゴリを登録できませんでした。再度入力してください。'
       @categories = Category.all
       render :index
     end
@@ -33,10 +32,10 @@ class Admin::CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      flash[:notice] = "カテゴリを更新しました。"
+      flash[:notice] = 'カテゴリを更新しました。'
       redirect_to admin_categories_path
     else
-      flash.now[:alert] = "カテゴリを更新できませんでした。再度入力してください。"
+      flash.now[:alert] = 'カテゴリを更新できませんでした。再度入力してください。'
       render :edit
     end
   end
@@ -44,7 +43,7 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:notice] = "カテゴリを削除しました。"
+    flash[:notice] = 'カテゴリを削除しました。'
     redirect_to admin_categories_path
   end
 
@@ -53,5 +52,4 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:category_name)
   end
-
 end
