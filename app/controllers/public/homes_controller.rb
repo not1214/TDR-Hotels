@@ -10,4 +10,8 @@ class Public::HomesController < ApplicationController
     @hotels = Hotel.includes(:area, :category).limit(5).order(created_at: :desc)
     gon.hotels = Hotel.all
   end
+
+  def privacy
+  end
+
 end

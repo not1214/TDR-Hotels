@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
+    get '/privacy' => 'homes#privacy'
 
     resources :hotels, only: %i[index show] do
       collection do
