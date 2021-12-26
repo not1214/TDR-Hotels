@@ -20,9 +20,9 @@
           <%= attachment_image_tag picture, :image, :fill, 250, 230 %>
           <div style="font-size:10px">
             <%= picture.image_name %>
-            <span class="text-right">
-              <%= link_to "削除", admin_picture_path(picture), method: :delete, data: { confirm: "画像を削除してもよろしいですか？" }, class: "text-danger" %>
-            </span>
+          </div>
+          <div class="text-right" style="font-size:10px">
+            <%= link_to "削除", admin_picture_path(picture), method: :delete, data: { confirm: "画像を削除してもよろしいですか？" }, class: "text-danger" %>
           </div>
         <% end %>
       </div>
