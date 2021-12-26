@@ -11,7 +11,7 @@
       <% rank = 1 %>
       <% @rate_ranks.each.with_index(1) do |hotel, i|%>
         <% if hotel.reviews.average(:rate).to_f.round(1) != last_rate %>
-        <div class="d-flex">
+        <div class="ranking d-flex">
           <div class="d-flex flex-column mt-2">
             <% rank = i %>
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
@@ -25,15 +25,15 @@
             </div>
           </div>
             <% last_rate = hotel.reviews.average(:rate).to_f.round(1) %>
-          <div class="d-flex flex-column ml-2 mt-auto">
-            <div style="font-size:12px; border-bottom: 2px solid #007bff">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
+          <div class="d-flex flex-column ml-2 mt-auto" style="height:70px">
+            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">評価：<%= hotel.avg_rate %> 点（5点満点）</span></div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
           </div>
         </div>
 
         <% else %>
-        <div class="d-flex">
+        <div class="ranking d-flex">
           <div class="d-flex flex-column mt-2">
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
@@ -46,8 +46,8 @@
             </div>
           </div>
             <% last_rate = hotel.reviews.average(:rate).to_f.round(1) %>
-          <div class="d-flex flex-column ml-2 mt-auto">
-            <div style="font-size:12px; border-bottom: 2px solid #007bff">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
+          <div class="d-flex flex-column ml-2 mt-auto" style="height:70px">
+            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">評価：<%= hotel.avg_rate %> 点（5点満点）</span></div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
           </div>
@@ -62,7 +62,7 @@
       <% rank = 1 %>
       <% @favorite_ranks.each.with_index(1) do |hotel, i|%>
         <% if hotel.favorites.count != last_favorite %>
-        <div class="d-flex">
+        <div class="ranking d-flex">
           <div class="d-flex flex-column mt-2">
             <% rank = i %>
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
@@ -76,8 +76,8 @@
             </div>
           </div>
             <% last_favorite = hotel.favorites.count %>
-          <div class="d-flex flex-column ml-2 mt-auto">
-            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">お気に入り：<%= hotel.favorites.count %>　</div>
+          <div class="d-flex flex-column ml-2 mt-auto" style="height:70px">
+            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">お気に入り：<%= hotel.favorites.count %></span></div>
             <div style="font-size:12px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>
@@ -85,7 +85,7 @@
         </div>
 
         <% else %>
-        <div class="d-flex">
+        <div class="ranking d-flex">
           <div class="d-flex flex-column mt-2">
             <div class="pl-1" style="border-left: 3px solid #007bff"><%= rank %> 位</div>
             <div>
@@ -98,8 +98,8 @@
             </div>
           </div>
             <% last_favorite = hotel.favorites.count %>
-          <div class="d-flex flex-column ml-2 mt-auto">
-            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">お気に入り：<%= hotel.favorites.count %> </span></div>
+          <div class="d-flex flex-column ml-2 mt-auto" style="height:70px">
+            <div style="font-size:12px"><span style="border-bottom: 2px solid #007bff">お気に入り：<%= hotel.favorites.count %></span></div>
             <div style="font-size:12px">評価：<%= hotel.avg_rate %> 点（5点満点）</div>
             <div style="font-size:9px">カテゴリ：<%= hotel.category.category_name %></div>
             <div style="font-size:9px">エリア：<%= hotel.area.area_name %></div>

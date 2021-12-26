@@ -16,6 +16,7 @@ class Admin::AreasController < ApplicationController
 
   def create
     @area = Area.new(area_params)
+    #binding.pry
     if @area.save
       flash[:notice] = "エリアを登録しました。"
       redirect_to admin_areas_path

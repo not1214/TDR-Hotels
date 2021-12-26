@@ -22,6 +22,7 @@ class Public::MembersController < ApplicationController
 
   def update
     @member = current_member
+    #binding.pry
     if current_member.update(member_params)
       flash[:notice] = "会員情報を更新しました。"
       redirect_to "/#{current_member.username}"
@@ -36,6 +37,7 @@ class Public::MembersController < ApplicationController
 
   def withdraw
     @member = current_member
+    #binding.pry
     @member.update(is_deleted: true)
     flash[:notice] = "退会しました。"
     reset_session
@@ -45,6 +47,7 @@ class Public::MembersController < ApplicationController
   def favorites
     @member = current_member
     @favorites = current_member.favorites.pluck(:hotel_id)
+    #binding.pry
     @favorite_hotels = Hotel.find(@favorites)
   end
 

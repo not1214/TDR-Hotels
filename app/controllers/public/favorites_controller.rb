@@ -5,6 +5,7 @@ class Public::FavoritesController < ApplicationController
   def create
     @hotel = Hotel.find(params[:hotel_id])
     @favorite = current_member.favorites.find_by(hotel_id: @hotel.id)
+    #binding.pry
     unless @favorite.present?
       @favorite = current_member.favorites.create(hotel_id: @hotel.id)
       flash[:alert] = nil
@@ -15,6 +16,7 @@ class Public::FavoritesController < ApplicationController
   def destroy
     @hotel = Hotel.find(params[:hotel_id])
     @favorite = current_member.favorites.find_by(hotel_id: @hotel.id)
+    #binding.pry
     if @favorite.present?
       @favorite.destroy
       flash[:notice] = nil

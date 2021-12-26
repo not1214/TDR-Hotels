@@ -9,7 +9,7 @@ class Public::HomesController < ApplicationController
     @categories = Category.all
     @areas = Area.all
     @hotels = Hotel.limit(5).order(created_at: :desc)
-gon.hotels = Hotel.all
+    gon.hotels = Hotel.all
   end
 
 end

@@ -74,6 +74,8 @@ gem "geocoder"  #経度緯度取得して地図表示
 gem 'devise-i18n'  #deviseの日本語化
 gem 'rails-i18n'  #railsの日本語化（モデル等）
 gem "gon"  #地図表示にてjavascriptに変数を渡せる
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
 
 #本番環境
 group :production do

@@ -6,6 +6,7 @@ class Public::ContactsController < ApplicationController
 
   def confirm
     @contact = Contact.new(contact_params)
+    #binding.pry
     if @contact.invalid?
       render :new
     end
@@ -18,6 +19,7 @@ class Public::ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    #binding.pry
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       flash[:notice] = "お問い合わせを送信しました。"

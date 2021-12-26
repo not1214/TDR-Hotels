@@ -21,6 +21,7 @@ class Public::ReviewsController < ApplicationController
   def create
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
+    #binding.pry
     @review.hotel_id = @hotel.id
     if @review.save
       flash[:notice] = "レビューを投稿しました。"
