@@ -3,7 +3,7 @@ class Admin::ReviewsController < ApplicationController
 
   def index
     @hotel = Hotel.find_by(id: params[:hotel_id])
-    @reviews = Review.where(hotel_id: params[:hotel_id]).page(params[:page]).per(5)
+    @reviews = Review.includes(:member).where(hotel_id: params[:hotel_id]).page(params[:page]).per(5)
   end
 
   def show

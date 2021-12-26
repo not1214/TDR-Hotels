@@ -1,0 +1,49 @@
+[1mdiff --git a/app/views/admin/reviews/show.html.erb b/app/views/admin/reviews/show.html.erb[m
+[1mindex c14125b..8b81b8a 100644[m
+[1m--- a/app/views/admin/reviews/show.html.erb[m
+[1m+++ b/app/views/admin/reviews/show.html.erb[m
+[36m@@ -64,4 +64,7 @@[m
+     </div>[m
+ [m
+   </div>[m
+[32m+[m[32m  <div class="row mt-3">[m
+[32m+[m[32m    <%= link_to "レビュー一覧へ戻る", admin_hotel_reviews_path(@hotel), class: "ml-auto" %>[m
+[32m+[m[32m  </div>[m
+ </div>[m
+[1mdiff --git a/app/views/public/contacts/complete.html.erb b/app/views/public/contacts/complete.html.erb[m
+[1mindex d8af088..c07f323 100644[m
+[1m--- a/app/views/public/contacts/complete.html.erb[m
+[1m+++ b/app/views/public/contacts/complete.html.erb[m
+[36m@@ -1,6 +1,6 @@[m
+ <div class="container-fluid">[m
+   <div class="row d-flex flex-column text-center mb-3">[m
+     <p class="col-md-auto">お問い合わせありがとうございます。</p>[m
+[31m-    <p class="col-md-auto">ご回答まで2営業日程お待ちください。</p>[m
+[32m+[m[32m    <p class="col-md-auto">ご回答まで2営業日ほどお待ちください。</p>[m
+   </div>[m
+ </div>[m
+[1mdiff --git a/app/views/public/contacts/confirm.html.erb b/app/views/public/contacts/confirm.html.erb[m
+[1mindex fa10a27..016943e 100644[m
+[1m--- a/app/views/public/contacts/confirm.html.erb[m
+[1m+++ b/app/views/public/contacts/confirm.html.erb[m
+[36m@@ -37,7 +37,7 @@[m
+     <%= f.hidden_field :email %>[m
+     <%= f.hidden_field :subject %>[m
+     <%= f.hidden_field :message %>[m
+[31m-    <%= f.submit "入力画面に戻る", class: "col-md-auto offset-md-1 btn btn-success" %>[m
+[32m+[m[32m    <%= f.submit "入力画面に戻る", class: "col-md-auto offset-md-1 btn btn-primary" %>[m
+   <% end %>[m
+   </div>[m
+ [m
+[1mdiff --git a/app/views/public/reviews/show.html.erb b/app/views/public/reviews/show.html.erb[m
+[1mindex 4e1be13..cc32c42 100644[m
+[1m--- a/app/views/public/reviews/show.html.erb[m
+[1m+++ b/app/views/public/reviews/show.html.erb[m
+[36m@@ -88,4 +88,7 @@[m
+     </div>[m
+ [m
+   </div>[m
+[32m+[m[32m  <div class="row mt-3">[m
+[32m+[m[32m    <%= link_to "レビュー一覧へ戻る", hotel_reviews_path(@hotel), class: "ml-auto" %>[m
+[32m+[m[32m  </div>[m
+ </div>[m

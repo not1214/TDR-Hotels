@@ -21,7 +21,7 @@ class Hotel < ApplicationRecord
 
   # 評価の平均点
   def avg_rate
-    if reviews.empty?
+    if reviews.includes(:reviews).empty?
       0.0
     else
       reviews.average(:rate).round(1)

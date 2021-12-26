@@ -46,7 +46,7 @@ class Public::MembersController < ApplicationController
     @member = current_member
     @favorites = current_member.favorites.pluck(:hotel_id)
     # binding.pry
-    @favorite_hotels = Hotel.find(@favorites)
+    @favorite_hotels = Hotel.includes(:area, :category).find(@favorites)
   end
 
   private

@@ -14,7 +14,7 @@
     <div class="col-md-9">
       <h5><span style="border-bottom: 2px solid #FF9933"><%= @hotel.hotel_name %>のレビュー一覧</span></h5>
       <% if @reviews.present? %>
-        <% @reviews.each do |review| %>
+        <% @reviews.includes(:member).each do |review| %>
         <div class="row mt-3">
           <div class="col-md-1 mt-3">
           <% if review.member_id == current_member.id %>
