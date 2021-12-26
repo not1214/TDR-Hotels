@@ -1,0 +1,13 @@
+<div class="border border-info p-1 text-center">
+  <h6>エリア検索</h6>
+</div>
+
+<div class="border border-info p-3">
+  <ul class="list-unstyled">
+    <% areas.each do |area| %>
+      <%= link_to admin_area_path(area) do %>
+        <li style="font-size: 12px"><%= area.area_name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -11,7 +11,7 @@ class Admin::PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
-    if @picture.save!
+    if @picture.save
       flash[:notice] = '写真を登録しました。'
       redirect_to admin_pictures_path
     else

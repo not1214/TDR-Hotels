@@ -39,3 +39,6 @@ ja:
         message: メッセージ
       review_comment:
         comment: コメント
+      picture:
+        image: 画像
+        image_name: 画像名

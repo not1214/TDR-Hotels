@@ -37,8 +37,8 @@ class Public::MembersController < ApplicationController
     @member = current_member
     # binding.pry
     @member.update(is_deleted: true)
-    flash[:notice] = '退会しました。'
     reset_session
+    flash[:notice] = '退会しました。'
     redirect_to root_path
   end
 

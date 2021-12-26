@@ -1,0 +1,15 @@
+<div class="border border-info p-1 text-center">
+  <h6>ジャンル検索</h6>
+</div>
+
+<div class="border border-info p-3">
+  <ul class="list-unstyled">
+    <% categories.each do |category| %>
+    <li style="font-size: 12px">
+      <%= link_to admin_category_path(category) do %>
+        <%= category.category_name %>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</div>
