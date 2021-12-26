@@ -24,14 +24,20 @@ class Public::MembersController < ApplicationController
     # binding.pry
     if current_member.update(member_params)
       flash[:notice] = '会員情報を更新しました。'
-      redirect_to "/#{current_member.username}"
+      redirect_to mypage_path
     else
       flash.now[:alert] = '会員情報を更新できませんでした。'
       render :edit
     end
   end
 
-  def unsubscribe; end
+  def unsubscribe
+    @member = Member.find_by(username: params[:username])
+    if @member != current_member
+      flash[:alert] = '不正なアクセスです。'
+      redirect_to "/#{@member.username}"
+    end
+  end
 
   def withdraw
     @member = current_member
