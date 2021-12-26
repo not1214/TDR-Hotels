@@ -10,17 +10,17 @@
 
     <div class="col-md-3 d-flex flex-column">
       <div>
-        <%= render "layouts/category_search", categories: @categories %>
+        <%= render "admin/hotels/category_search", categories: @categories %>
       </div>
       <div class="mt-3">
-        <%= render "layouts/area_search", areas: @areas %>
+        <%= render "admin/hotels/area_search", areas: @areas %>
       </div>
       <div class="mt-3" id="map-index"></div>
     </div>
 
     <div class="col-md-9">
       <div class="d-flex flex-wrap">
-        <% @area_hotel.each do |hotel| %>
+        <% @area_hotel.includes(:area, :category).each do |hotel| %>
         <div class="d-flex flex-column mb-3 mr-md-2 mr-lg-3">
           <div>
             <%= link_to admin_hotel_path(hotel) do %>

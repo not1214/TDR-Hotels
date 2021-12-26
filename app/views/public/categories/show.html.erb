@@ -20,7 +20,7 @@
 
     <div class="col-md-9">
       <div class="d-flex flex-wrap">
-        <% @category_hotel.each do |hotel| %>
+        <% @category_hotel.includes(:area, :category).each do |hotel| %>
         <div class="d-flex flex-column mb-3 mr-md-2 mr-lg-3">
           <div>
             <%= link_to hotel_path(hotel) do %>

@@ -11,6 +11,7 @@ class Admin::AreasController < ApplicationController
     @areas = Area.all
     @area = Area.find(params[:id])
     @area_hotel = Hotel.where(area_id: @area.id).page(params[:page]).per(12)
+    gon.hotels = Hotel.all
   end
 
   def create
