@@ -41,7 +41,12 @@
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML5,CSS3,JavaScript,Ruby 2.6.3,SQL
+- 言語
+   - HTML 5
+   - CSS 3
+   - JavaScript
+   - Ruby 2.6.3
+   - SQL
 - フレームワーク：Ruby on Rails 5.2.6
 - JSライブラリ：jQuery
 - IDE：Cloud9
