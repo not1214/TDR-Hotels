@@ -11,11 +11,11 @@
       <h5 class="mb-3"><span style="border-bottom: 2px solid #FF9933">お気に入りホテル一覧</span></h5>
       <div class="d-flex flex-wrap">
         <% @favorite_hotels.each do |hotel| %>
-        <div class="d-flex flex-column mb-3 mr-3">
+        <div class="d-flex flex-column mb-3 mr-md-2 mr-lg-3">
           <div>
             <%= link_to hotel_path(hotel) do %>
               <% hotel.hotel_images.first(1).each do |image| %>
-                <%= attachment_image_tag image, :image, :fill, 230, 200 %>
+                <%= attachment_image_tag image, :image, :fill, 225, 200 %>
               <% end %>
             <% end %>
           </div>
