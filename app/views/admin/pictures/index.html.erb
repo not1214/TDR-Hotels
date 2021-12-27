@@ -16,10 +16,10 @@
     <div class="d-flex flex-wrap justify-content-center">
       <% @pictures.each do |picture| %>
       <div class="mb-3 mx-1">
-      <%= link_to Refile.attachment_url(picture, :image), "data-lightbox": "pictures", "data-title": picture.image_name do %>
-        <%= attachment_image_tag picture, :image, :fill, 250, 230 %>
-        <div style="font-size:10px"><%= picture.image_name %></div>
-      <% end %>
+        <%= link_to Refile.attachment_url(picture, :image), "data-lightbox": "pictures", "data-title": picture.image_name do %>
+          <%= attachment_image_tag picture, :image, :fill, 250, 230 %>
+          <div style="font-size:10px"><%= picture.image_name %></div>
+        <% end %>
         <div class="text-right" style="font-size:10px">
           <%= link_to "削除", admin_picture_path(picture), method: :delete, data: { confirm: "画像を削除してもよろしいですか？" }, class: "text-danger" %>
         </div>
