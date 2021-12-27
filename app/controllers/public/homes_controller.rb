@@ -11,7 +11,5 @@ class Public::HomesController < ApplicationController
     gon.hotels = Hotel.all
   end
 
-  def privacy
-  end
-
+  def privacy; end
 end

@@ -13,7 +13,9 @@ class Public::HotelsController < ApplicationController
   end
 
   def ranking
-    @rate_ranks = Hotel.includes(:area, :category).find(Review.group(:hotel_id).order('avg(rate) desc').limit(5).pluck(:hotel_id))
-    @favorite_ranks = Hotel.includes(:area, :category).find(Favorite.group(:hotel_id).order('count(hotel_id) desc').limit(5).pluck(:hotel_id))
+    @rate_ranks = Hotel.includes(:area,
+                                 :category).find(Review.group(:hotel_id).order('avg(rate) desc').limit(5).pluck(:hotel_id))
+    @favorite_ranks = Hotel.includes(:area,
+                                     :category).find(Favorite.group(:hotel_id).order('count(hotel_id) desc').limit(5).pluck(:hotel_id))
   end
 end
