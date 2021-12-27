@@ -13,6 +13,7 @@ class Public::MembersController < ApplicationController
 
   def edit
     @member = Member.find_by(username: params[:username])
+    # binding.pry
     if @member != current_member
       flash[:alert] = '不正なアクセスです。'
       redirect_to "/#{@member.username}"
@@ -22,7 +23,8 @@ class Public::MembersController < ApplicationController
   def update
     @member = current_member
     # binding.pry
-    if current_member.update(member_params)
+    if @member.update(member_params)
+      # binding.pry
       flash[:notice] = '会員情報を更新しました。'
       redirect_to mypage_path
     else

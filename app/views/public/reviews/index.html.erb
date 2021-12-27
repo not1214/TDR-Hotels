@@ -3,10 +3,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 text-center">
-      <div id="favorite_on_review_<%= @hotel.id %>">
-        <%= render "public/favorites/favorite-smallbtn", hotel: @hotel %>
+      <div class="d-flex justify-content-center">
+        <div id="favorite_on_review_<%= @hotel.id %>">
+          <%= render "public/favorites/favorite-smallbtn", hotel: @hotel %>
+        </div>
+        <div>
+          <%= link_to "レビュー投稿", new_hotel_review_path(@hotel), class: "btn btn-dark btn-sm ml-2", style: "font-size:11px" %>
+        </div>
       </div>
-
       <%= render "layouts/hotel", hotel: @hotel %>
 
     </div>
