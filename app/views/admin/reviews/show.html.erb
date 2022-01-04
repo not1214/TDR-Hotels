@@ -52,6 +52,11 @@
                 </div>
                 <h6 class="text-break" style="font-size: 14px"><%= link_to @review.title, admin_hotel_review_path(@hotel, @review) %></h6>
                 <p class="text-break" style="font-size: 13px"><%= @review.content %></p>
+                <% if review.content_score != nil && review.content_score >= 0 %>
+                <p style="font-size: 12px; color: green">感情分析スコア：<%= review.content_score %>点　(10点満点)</p>
+                <% elsif review.content_score != nil && review.content_score < 0 %>
+                <p style="font-size: 12px; color: red">感情分析スコア：<%= review.content_score %>点　(10点満点)</p>
+                <% end %>
               </div>
             </div>
           </div>

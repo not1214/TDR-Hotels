@@ -20,6 +20,7 @@ class Public::ReviewsController < ApplicationController
   def create
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
+    @review.content_score = Language.get_data(review_params[:content]) * 10
     # binding.pry
     @review.hotel_id = @hotel.id
     if @review.save
