@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-9">
       <h5><span style="border-bottom: 2px solid #FF9933"><%= @hotel.hotel_name %>のレビュー投稿</span></h5>
-      <%= form_with model: @review, url: hotel_reviews_path, local: true do |f| %>
+      <%= form_with model: @review, url: hotel_reviews_path(@hotel), local: true do |f| %>
       <div class="row">
         <div class="col-md-3 offset-md-1 mt-4 font-weight-bold">画像</div>
         <div class="col-md-6 mt-4"><%= f.attachment_field :review_image %></div>
