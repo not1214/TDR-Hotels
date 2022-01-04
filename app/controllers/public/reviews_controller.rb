@@ -29,7 +29,7 @@ class Public::ReviewsController < ApplicationController
     else
       flash.now[:alert] = 'レビューを投稿できませんでした。もう一度入力してください。'
       render :new
-    endgit 
+    end 
   end
 
   def edit
