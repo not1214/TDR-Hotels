@@ -21,7 +21,7 @@ class Public::ReviewsController < ApplicationController
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
     @review.content_score = Language.get_data(review_params[:content]) * 10
-    # binding.pry
+    #binding.pry
     @review.hotel_id = @hotel.id
     if @review.save
       flash[:notice] = 'レビューを投稿しました。'
@@ -29,7 +29,7 @@ class Public::ReviewsController < ApplicationController
     else
       flash.now[:alert] = 'レビューを投稿できませんでした。もう一度入力してください。'
       render :new
-    end
+    endgit 
   end
 
   def edit

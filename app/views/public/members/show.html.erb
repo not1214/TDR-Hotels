@@ -5,7 +5,7 @@
       <div><%= @member.username %></div>
       <p class="introduction text-break" style="font-size:10px"><%= @member.introduction %></p>
       <% if @member == current_member %>
-      <p><%= link_to "編集する", "/#{current_member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>
+      <p><%= link_to "編集する", "/#{@member.username}/edit", class: "btn btn-info btn-sm", style: "font-size: 9px" %></p>
       <div><%= link_to "お気に入りホテル一覧", "/#{@member.username}/favorites", class: "btn btn-warning btn-sm", style: "font-size: 9px" %></div>
       <% end %>
     </div>
