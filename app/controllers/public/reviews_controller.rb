@@ -3,7 +3,7 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @hotel = Hotel.find_by(id: params[:hotel_id])
-    @reviews = Review.where(hotel_id: params[:hotel_id]).page(params[:page]).per(5)
+    @reviews = Review.where(hotel_id: params[:hotel_id], review_image_status: false).order("created_at DESC").page(params[:page]).per(5)
   end
 
   def show
@@ -21,15 +21,23 @@ class Public::ReviewsController < ApplicationController
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = current_member.reviews.new(review_params)
     @review.content_score = Language.get_data(review_params[:content]) * 10
-    #binding.pry
+    # binding.pry
     @review.hotel_id = @hotel.id
     if @review.save
       flash[:notice] = 'レビューを投稿しました。'
       redirect_to hotel_reviews_path(@hotel)
+      if Vision.image_analysis(@review.review_image)
+        # binding.pry
+        @review.review_image_status = true
+        @review.save
+        flash[:notice] = nil
+        flash[:alert] = "不適切な画像です。マイページから画像を変更してください。"
+      end
     else
       flash.now[:alert] = 'レビューを投稿できませんでした。もう一度入力してください。'
       render :new
-    end 
+    end
+
   end
 
   def edit
@@ -47,6 +55,12 @@ class Public::ReviewsController < ApplicationController
     if @review.update(review_params)
       flash[:notice] = 'レビューを編集しました。'
       redirect_to hotel_review_path(@hotel, @review)
+      if Vision.image_analysis(@review.review_image)
+        # binding.pry
+        @review.update(review_image_status: true)
+        flash[:notice] = nil
+        flash[:alert] = "不適切な画像です。マイページから画像を変更してください。"
+      end
     else
       flash.now[:alert] = 'レビューを編集できませんでした。再度入力してください。'
       render :edit

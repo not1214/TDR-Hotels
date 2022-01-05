@@ -72,7 +72,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:show]
 
     # URLがusernameになるようにルーティング設定
-    get '/mypage' => 'members#mypage'
+    get '/mypage' => 'members#mypage',as: "mypage"
     get '/:username' => 'members#show'
     get '/:username/edit' => 'members#edit'
     get '/:username/favorites' => 'members#favorites'

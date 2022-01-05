@@ -4,13 +4,15 @@ require 'net/https'
 
 module Vision
   class << self
-    def get_image_data(image_file)
+    def image_analysis(image_file)
       # APIのURL作成
       api_url = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GOOGLE_API_KEY']}"
 
       # 画像をbase64にエンコード
-      dir_tree =  image_file.key.scan(/.{1,#{2}}/)
-      base64_image = Base64.encode64(open("#{Rails.root}/public/uploads/#{dir_tree[0]}/#{dir_tree[1]}/#{image_file.key}").read)
+      base64_image = Base64.encode64(open("#{Rails.root}/public/uploads/#{image_file.id}").read)
+
+      # アップロードする前にセーフサーチするならこっち
+      # base64_image = Base64.encode64(open("#{Rails.root}/tmp/uploads/cache/#{image_file.id}").read)
 
       # APIリクエスト用のJSONパラメータ
       params = {
@@ -34,8 +36,11 @@ module Vision
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       response_body = JSON.parse(response.body)
+      # binding.irb
+
       # APIレスポンス出力
-      !(response_body.values[0][0].values[0].values.include?("VERY_LIKELY") ||response_body.values[0][0].values[0].values.include?("LIKELY"))
+      response_body.values[0][0].values[0].values.include?("VERY_LIKELY") ||response_body.values[0][0].values[0].values.include?("LIKELY")
+
     end
   end
 end

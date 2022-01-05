@@ -3,12 +3,12 @@ class Public::MembersController < ApplicationController
 
   def mypage
     @member = current_member
-    @reviews = @member.reviews.page(params[:page]).per(5)
+    @reviews = @member.reviews.order("created_at DESC").page(params[:page]).per(5)
   end
 
   def show
     @member = Member.find_by(username: params[:username])
-    @reviews = @member.reviews.page(params[:page]).per(5)
+    @reviews = @member.reviews.where(review_image_status: false).order("created_at DESC").page(params[:page]).per(5)
   end
 
   def edit

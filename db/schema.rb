@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_03_103227) do
+ActiveRecord::Schema.define(version: 2022_01_05_035653) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2022_01_03_103227) do
     t.string "review_image_id"
     t.float "rate", null: false
     t.decimal "content_score", precision: 5, scale: 3
+    t.boolean "review_image_status", default: false, null: false
   end
 
 end
