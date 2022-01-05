@@ -60,6 +60,8 @@ class Public::ReviewsController < ApplicationController
         @review.update(review_image_status: true)
         flash[:notice] = nil
         flash[:alert] = "不適切な画像です。マイページから画像を変更してください。"
+      else
+        @review.update(review_image_status: false)
       end
     else
       flash.now[:alert] = 'レビューを編集できませんでした。再度入力してください。'

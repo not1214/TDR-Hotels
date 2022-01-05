@@ -32,6 +32,8 @@ class Public::MembersController < ApplicationController
         @member.update(profile_image_status: true)
         flash[:notice] = nil
         flash[:alert] = "不適切な画像です。マイページから画像を変更してください。"
+      else
+        @member.update(profile_image_status: false)
       end
     else
       flash.now[:alert] = '会員情報を更新できませんでした。'
