@@ -27,6 +27,12 @@ class Public::MembersController < ApplicationController
       # binding.pry
       flash[:notice] = '会員情報を更新しました。'
       redirect_to mypage_path
+
+      if Vision.image_analysis(@member.profile_image)
+        @member.update(profile_image_status: true)
+        flash[:notice] = nil
+        flash[:alert] = "不適切な画像です。マイページから画像を変更してください。"
+      end
     else
       flash.now[:alert] = '会員情報を更新できませんでした。'
       render :edit

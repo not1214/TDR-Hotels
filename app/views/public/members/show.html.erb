@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 text-center">
-      <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
+      <% if @member.profile_image_status != true %>
+        <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
+      <% end %>
       <div><%= @member.username %></div>
       <p class="introduction text-break" style="font-size:10px"><%= @member.introduction %></p>
       <% if @member == current_member %>

@@ -40,7 +40,7 @@ module Vision
 
       # APIレスポンス出力
       response_body.values[0][0].values[0].values.include?("VERY_LIKELY") ||response_body.values[0][0].values[0].values.include?("LIKELY")
-
+      
     end
   end
 end
