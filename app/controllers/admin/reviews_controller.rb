@@ -4,16 +4,19 @@ class Admin::ReviewsController < ApplicationController
   def index
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @reviews = Review.includes(:member).where(hotel_id: params[:hotel_id]).order("created_at DESC").page(params[:page]).per(5)
+    gon.hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def show
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.find(params[:id])
+    gon.hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def edit
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.find(params[:id])
+    gon.hotel = Hotel.find_by(params[:id])
   end
 
   def update

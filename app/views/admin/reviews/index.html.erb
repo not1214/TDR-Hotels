@@ -1,10 +1,11 @@
-<%= render "layouts/map", hotel: @hotel %>
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 text-center">
 
       <%= render "layouts/hotel", hotel: @hotel %>
+      <div id="map"></div>
+        <script type="text/javascript" src="map.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=initMap"></script>
 
     </div>
 
@@ -50,7 +51,7 @@
                       });
                     </script>
                 </div>
-                <h6 style="font-size: 14px"><%= link_to review.title.truncate(20), admin_hotel_review_path(@hotel, review) %></h6>
+                <h6 style="font-size: 14px">タイトル：<%= link_to review.title.truncate(20), admin_hotel_review_path(@hotel, review) %></h6>
                 <p class="text-break" style="font-size: 13px"><%= review.content.truncate(40) %></p>
                 <% if review.content_score != nil && review.content_score >= 0 %>
                 <p style="font-size: 12px; color: green">感情分析スコア：<%= review.content_score %>点　(10点満点)</p>
@@ -66,5 +67,8 @@
       <% end %>
       <div class="d-flex justify-content-center"><%= paginate @reviews %></div>
     </div>
+  </div>
+  <div class="row mt-3">
+    <%= link_to "ホテル詳細へ戻る", admin_hotel_path(@hotel), class: "ml-auto mr-3" %>
   </div>
 </div>

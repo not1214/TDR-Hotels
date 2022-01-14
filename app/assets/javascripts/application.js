@@ -31,7 +31,6 @@ $(function() {
         pauseOnFocus: false,
         pauseOnHover: false,
         pauseOnDotsHover: false,
-
     });
 
     $(".slider-top").slick({

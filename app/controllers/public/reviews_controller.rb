@@ -4,17 +4,20 @@ class Public::ReviewsController < ApplicationController
   def index
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @reviews = Review.where(hotel_id: params[:hotel_id], review_image_status: false).order("created_at DESC").page(params[:page]).per(5)
+    gon.hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def show
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.find(params[:id])
     @review_comment = ReviewComment.new
+    gon.hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def new
     @hotel = Hotel.find_by(id: params[:hotel_id])
     @review = Review.new
+    gon.hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def create
@@ -47,6 +50,7 @@ class Public::ReviewsController < ApplicationController
       flash[:alert] = '不正なアクセスです。'
       redirect_to hotel_review_path(@hotel, @review)
     end
+    gon.hotel = Hotel.find_by(id: params[:hotel_id])
   end
 
   def update

@@ -28,6 +28,7 @@ class Admin::HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
+    gon.hotel = Hotel.find(params[:id])
   end
 
   def edit
