@@ -12,7 +12,7 @@ class Public::MembersController < ApplicationController
   end
 
   def edit
-    @member = Member.find_by(username: params[:username])
+    @member = current_member
     # binding.pry
     if @member != current_member
       flash[:alert] = '不正なアクセスです。'
@@ -42,7 +42,7 @@ class Public::MembersController < ApplicationController
   end
 
   def unsubscribe
-    @member = Member.find_by(username: params[:username])
+    @member = current_member
     if @member != current_member
       flash[:alert] = '不正なアクセスです。'
       redirect_to "/#{@member.username}"

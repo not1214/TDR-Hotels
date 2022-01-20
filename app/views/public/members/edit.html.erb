@@ -3,7 +3,7 @@
     <h3 style="border-bottom: 2px solid #FF9933">会員情報編集</h3>
   </div>
 
-  <%= form_with model: @member, url: "/#{current_member.username}", local: true do |f| %>
+  <%= form_with model: @member, url: update_mypage_path, local: true do |f| %>
   <div class="row justify-content-center">
     <%= f.label :"プロフィール画像", class: "col-md-3 font-weight-bold" %>
     <%= f.attachment_field :profile_image, class: "col-md-5" %>
@@ -54,7 +54,7 @@
   </div>
   <div class="row justify-content-center mt-3">
     <%= f.submit "更新", class: "col-md-1 btn btn-success btn-sm" %>
-    <%= link_to "退会", "/#{current_member.username}/unsubscribe", class: "col-md-1 btn btn-danger btn-sm ml-3" %>
+    <%= link_to "退会", unsubscribe_member_path, class: "col-md-1 btn btn-danger btn-sm ml-3" %>
   </div>
   <% end %>
 </div>
