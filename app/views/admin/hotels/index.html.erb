@@ -1,5 +1,5 @@
-<%= render "layouts/admin-map-index" %>
-
+<%#= render "layouts/admin-map-index" %>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=admin_map_index"></script>
 <div class="container-fluid">
 
   <div class="row justify-content-center mb-3">
