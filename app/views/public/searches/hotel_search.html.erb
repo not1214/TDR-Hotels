@@ -1,5 +1,3 @@
-<%= render "layouts/member-map-index" %>
-
 <div class="container-fluid">
   <div class="row justify-content-center mb-3">
     <h3 style="border-bottom: 2px solid #FF9933">検索結果</h3>
@@ -13,7 +11,8 @@
       <div class="mt-3">
         <%= render "layouts/area_search", areas: @areas %>
       </div>
-      <div class="mt-3" id="map-index"></div>
+      <div class="mt-3" id="member-map-index"></div>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=member_map_index"></script>
     </div>
 
     <div class="col-md-9">
