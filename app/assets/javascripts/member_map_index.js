@@ -18,7 +18,7 @@ function member_map_index() {
     let id = markerData[i]['id']
 
     // 各地点の緯度経度を算出
-    markerLatLng = new google.maps.LatLng({
+    let markerLatLng = new google.maps.LatLng({
       lat: markerData[i]['latitude'],
       lng: markerData[i]['longitude']
     });
