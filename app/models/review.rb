@@ -4,7 +4,7 @@ class Review < ApplicationRecord
 
   has_many :review_comments, dependent: :destroy
 
-  attachment :review_image
+  attachment :review_image, type: :image
 
   validates :title, presence: true
   validates :rate, presence: true

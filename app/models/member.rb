@@ -15,7 +15,7 @@ class Member < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :phone_number, presence: true, format: { with: /\A\d{10,11}\z/ }  # 電話番号ハイフンなし10or11桁
 
-  attachment :profile_image
+  attachment :profile_image, type: :image
 
   def full_name
     last_name + first_name
