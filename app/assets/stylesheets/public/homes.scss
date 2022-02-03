@@ -1,3 +1,26 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*トップ画面のスライダー*/
+.slick-dots {
+  bottom: 4%;
+  z-index: +1;
+  button:before {
+    color: white !important;
+  }
+}
+
+.slider-image {
+  position: relative;
+}
+
+/*トップ画面のスライダーの右下の文字*/
+.slider-text {
+  padding: 0 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

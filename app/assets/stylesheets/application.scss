@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import 'public/homes';
 
 /*フォントを明朝体に*/
 body {
@@ -83,25 +84,6 @@ footer {
   font-size: 12px;
 }
 
-/*ノートパソコンのサイズ以下でのTOP画面表示*/
-@media screen and (max-width:1024px) {
-  .slider-top {
-  width: 700px !important;
-  height: 550px !important;
-  }
-  .slick-dots {
-    bottom: 4%;
-    z-index: +1;
-    button:before {
-    color: white !important;
-    }
-  }
-  .slider-image {
-    width: 700px !important;
-    height: 550px !important;
-  }
-}
-
 /*ホテルの詳細画面やレビュー画面でのGoogleMap*/
 #map {
   height: 250px;
@@ -144,35 +126,6 @@ footer {
 .slick-next:before {
   color: #000 !important;
   font-size: 14px !important;
-}
-
-/*トップ画面のスライダー*/
-.slider-top {
-  width: 900px;
-  height: 550px;
-  .slick-dots {
-    bottom: 4%;
-    z-index: +1;
-    button:before {
-      color: white !important;
-    }
-  }
-}
-
-.slider-image {
-  width: 900px;
-  height: 550px;
-  position: relative;
-}
-
-/*トップ画面のスライダーの右下の文字*/
-.slider-text {
-  padding: 0 2px;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: white;
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 /*レビュー画面の吹き出し*/

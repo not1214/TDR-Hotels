@@ -35,7 +35,7 @@ $(function() {
         arrows: false,
         dots: true,
         autoplay: true,
-        autoplaySpeed: 1500,
+        autoplaySpeed: 3000,
         speed: 4000,
         fade: true,
         pauseOnFocus: false,
