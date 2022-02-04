@@ -33,10 +33,10 @@ $(function() {
 
     $(".slider-top").slick({
         arrows: false,
-        dots: true,
+        dots: false,
         autoplay: true,
-        autoplaySpeed: 3000,
-        speed: 4000,
+        autoplaySpeed: 1000,
+        speed: 5000,
         fade: true,
         pauseOnFocus: false,
         pauseOnHover: false,
