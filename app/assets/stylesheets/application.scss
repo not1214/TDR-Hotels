@@ -44,6 +44,10 @@ header {
     background-color: #FF9933 !important;
     color: black !important;
   }
+  .logo {
+    max-width: 150px;
+    max-height: 60px;
+  }
 }
 
 .fab:hover {
@@ -54,8 +58,6 @@ header {
   background-color: #FF9933 !important;
   color: black !important;
 }
-
-
 
 main {
   margin: 25px 0;
@@ -86,6 +88,30 @@ footer {
 
 .nav-items {
   font-size: 12px;
+}
+
+.navbar-toggler {
+  border-color: black;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.search-form {
+  margin: 10px 0;
+}
+
+@media screen and (min-width:992px) {
+  .search-form {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .search {
+    display: none;
+  }
 }
 
 /*ホテルの詳細画面やレビュー画面でのGoogleMap*/

@@ -1,68 +1,69 @@
-<nav class="navbar navbar-expand-lg" style="height: 130px">
-  <div class="container-fluid">
-    <div class="row d-flex align-items-center">
-      
-      <div class="col-xs-1 col-md-3">
-        <div class="d-md-flex">
-          <div class="ml-md-3">
-            <%= link_to "https://www.facebook.com/" do %>
-              <i class="fab fa-facebook-square fa-2x"></i>
-            <% end %>
-          </div>
-          <div class="ml-md-3">
-            <%= link_to "https://www.twitter.com/" do %>
-              <i class="fab fa-twitter-square fa-2x"></i>
-            <% end %>
-          </div>
-          <div class="ml-md-3">
-            <%= link_to "https://www.instagram.com/" do %>
-              <i class="fab fa-instagram-square fa-2x"></i>
-            <% end %>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-xs-7 col-md-6 d-flex flex-column text-center">
-        <a class="logo" href="/">
-          <%= image_tag 'uhs_logo.png', width: 150, height: 60 %>
-        </a>
-        <div>
-          <ul class="nav nav-tabs mt-2 justify-content-center">
-          <!--会員がログインした場合-->
-          <% if member_signed_in? %>
-            <li class="nav-items"><%= link_to "マイページ", mypage_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ホテル", hotels_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ランキング", ranking_hotels_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ギャラリー", pictures_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "nav-link active" %></li>
-          <!--管理者がログインした場合-->
-          <% elsif admin_signed_in? %>
-            <li class="nav-items"><%= link_to "ホテル", admin_hotels_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "カテゴリ", admin_categories_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "エリア", admin_areas_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "メンバー", admin_members_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ギャラリー", admin_pictures_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link active" %></li>
-          <!--ログインしていない場合-->
-          <% else %>
-            <li class="nav-items"><%= link_to "トップ", root_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "アバウト", about_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "サインアップ", new_member_registration_path, class: "nav-link active" %></li>
-            <li class="nav-items"><%= link_to "ログイン", new_member_session_path, class: "nav-link active" %></li>
-          <% end %>
-          </ul>
-  
-        </div>
-      </div>
-  
-      <div class="col-xs-2 col-md-3 align-items-center">
-        <% if admin_signed_in? %>
-          <%= render "admin/searches/search" %>
-        <% else %>
-          <%= render "public/searches/search" %>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg" style="height: auto">
+
+      <div class="col-2 col-md-3 flex-column flex-md-row justify-content-start">
+        <%= link_to "https://www.facebook.com/" do %>
+          <i class="fab fa-facebook-square fa-2x ml-md-3"></i>
+        <% end %>
+        <%= link_to "https://www.twitter.com/" do %>
+          <i class="fab fa-twitter-square fa-2x ml-md-3"></i>
+        <% end %>
+        <%= link_to "https://www.instagram.com/" do %>
+          <i class="fab fa-instagram-square fa-2x ml-md-3"></i>
         <% end %>
       </div>
-    
-    </div>
-  </div>
-</nav>
+
+      <div class="col-8 col-md-6 d-flex flex-column">
+        <div class="text-center">
+          <a class="logo" href="/">
+            <%= image_tag 'uhs_logo.png', :size => "150x60", class: "img-fluid" %>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+          <ul class="nav nav-tabs navbar-nav mt-2">
+          <!--会員がログインした場合-->
+          <% if member_signed_in? %>
+            <li class="nav-items search-form"><%= render "public/searches/search" %></li>
+            <li class="nav-items"><%= link_to "マイページ", mypage_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ホテル", hotels_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ランキング", ranking_hotels_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ギャラリー", pictures_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "nav-link active text-center" %></li>
+          <!--管理者がログインした場合-->
+          <% elsif admin_signed_in? %>
+            <li class="nav-items"><%= render "admin/searches/search" %></li>
+            <li class="nav-items"><%= link_to "ホテル", admin_hotels_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "カテゴリ", admin_categories_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "エリア", admin_areas_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "メンバー", admin_members_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ギャラリー", admin_pictures_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link active text-center" %></li>
+          <!--ログインしていない場合-->
+          <% else %>
+            <li class="nav-items search-form"><%= render "public/searches/search" %></li>
+            <li class="nav-items"><%= link_to "トップ", root_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "アバウト", about_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "サインアップ", new_member_registration_path, class: "nav-link active text-center" %></li>
+            <li class="nav-items"><%= link_to "ログイン", new_member_session_path, class: "nav-link active text-center" %></li>
+          <% end %>
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="col-2 col-md-3 align-items-center text-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="search">
+          <% if admin_signed_in? %>
+            <%= render "admin/searches/search" %>
+          <% else %>
+            <%= render "public/searches/search" %>
+          <% end %>
+        </div>
+      </div>
+
+  </nav>
+</div>
+
