@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
   <div class="row justify-content-center">
-    <div class="col-md-4 col-lg-3 d-flex flex-column">
+    <div class="order-2 order-md-1 col-md-4 col-lg-3 d-flex flex-column">
       <div>
         <%= render "layouts/category_search", categories: @categories %>
       </div>
@@ -12,7 +12,7 @@
         <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=member_map_index"></script>
     </div>
 
-    <div class="col-md-8 col-lg-8 col-xl-9">
+    <div class="order-1 order-md-2 col-md-8 col-lg-8 col-xl-9 mb-3">
       <h4 class="text-center text-md-left"><span style="border-bottom: 2px solid #FF9933">浦安ホテルサーチについて</span></h4>
       <p class="mt-3 text-center text-md-left"><strong>ゲストさんへ</strong></p>
       <p class="text-center text-md-left">
