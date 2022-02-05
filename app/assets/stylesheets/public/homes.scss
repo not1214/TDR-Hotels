@@ -30,3 +30,10 @@
 .about {
   display: inline-block;
 }
+
+/*ノートパソコン(L)サイズ以下でのabout画面表示*/
+@media screen and (max-width:1440px) {
+  .hotel-image:last-child {
+  display: none !important;
+  }
+}
