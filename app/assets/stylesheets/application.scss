@@ -35,6 +35,12 @@ body {
 header {
   border-bottom: 2px ridge #6699FF;
   background-color: #EEFFFF;
+  a:hover {
+    text-decoration: none
+  }
+  .sns-icon {
+    padding-left: 0;
+  }
   .nav-link {
     padding: 5px 10px !important;
     background-color: #007bff !important;
@@ -92,6 +98,7 @@ footer {
 
 .navbar-toggler {
   border-color: black;
+  padding: 5px;
 }
 
 .navbar-toggler .navbar-toggler-icon {
