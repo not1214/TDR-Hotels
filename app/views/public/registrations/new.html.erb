@@ -8,16 +8,16 @@
   <% end %>
 
   <div class="row justify-content-center">
-    <%= f.label :"ユーザー名*", class: "col-md-3 font-weight-bold" %>
-    <%= f.text_field :username, autocomplete: "username", class: "col-md-5 form-control" %>
+    <%= f.label :"ユーザー名*", class: "col-7 col-md-3 font-weight-bold" %>
+    <%= f.text_field :username, autocomplete: "username", class: "col-6 col-md-5 form-control" %>
     <% if @member.errors.include?(:username) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
+      <div class="col-8 col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.label :"氏名*", class: "col-md-2 font-weight-bold" %>
-    <%= f.label :"(姓)", class: "col-md-1 font-weight-bold text-right" %>
-    <%= f.text_field :last_name, autocomplete: true, class: "col-md-2 form-control" %>
+    <%= f.label :"氏名*", class: "col-7 col-md-2 font-weight-bold" %>
+    <%= f.label :"(姓)", class: "col-5 col-md-1 font-weight-bold text-md-right" %>
+    <%= f.text_field :last_name, autocomplete: true, class: "col-6 col-md-2 form-control" %>
     <%= f.label :"(名)", class: "col-md-1 font-weight-bold text-right" %>
     <%= f.text_field :first_name, autocomplete: true, class: "col-md-2 form-control" %>
     <% if @member.errors.include?(:last_name) %>
