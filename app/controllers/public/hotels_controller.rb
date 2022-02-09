@@ -3,6 +3,7 @@ class Public::HotelsController < ApplicationController
 
   def index
     @hotels = Hotel.includes(:area, :category).page(params[:page]).per(12)
+    # binding.pry
     @categories = Category.all
     @areas = Area.all
     gon.hotels = Hotel.all
