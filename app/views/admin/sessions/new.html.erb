@@ -5,13 +5,13 @@
 
   <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
 
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"メールアドレス", class: "col-md-2 font-weight-bold" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-3 form-control" %>
+  <div class="row flex-column flex-md-row align-items-center justify-content-md-center">
+    <%= f.label :"メールアドレス", class: "col-7 col-md-3 col-lg-2 font-weight-bold" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-6 col-md-3 form-control" %>
   </div>
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"パスワード", class: "col-md-2 font-weight-bold" %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "col-md-3 form-control" %>
+  <div class="row flex-column flex-md-row align-items-center justify-content-md-center mt-3">
+    <%= f.label :"パスワード", class: "col-7 col-md-3 col-lg-2 font-weight-bold" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "col-6 col-md-3 form-control" %>
   </div>
   <div class="row justify-content-center mt-3">
     <% if devise_mapping.rememberable? %>
