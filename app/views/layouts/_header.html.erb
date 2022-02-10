@@ -31,7 +31,7 @@
             <li class="nav-items"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "nav-link active text-center" %></li>
           <!--管理者がログインした場合-->
           <% elsif admin_signed_in? %>
-            <li class="nav-items"><%= render "admin/searches/search" %></li>
+            <li class="nav-items search-form"><%= render "admin/searches/search" %></li>
             <li class="nav-items"><%= link_to "ホテル", admin_hotels_path, class: "nav-link active text-center" %></li>
             <li class="nav-items"><%= link_to "カテゴリ", admin_categories_path, class: "nav-link active text-center" %></li>
             <li class="nav-items"><%= link_to "エリア", admin_areas_path, class: "nav-link active text-center" %></li>
