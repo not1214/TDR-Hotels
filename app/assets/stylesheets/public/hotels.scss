@@ -2,10 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#member-map-index {
-  height: 400px;
-}
-
+/*ホテル詳細画面にてホテル名のフォントサイズ*/
 @media screen and (max-width:424px) {
   .hotel-name {
     font-size: 22px;
@@ -19,6 +16,7 @@
   margin: 0 auto;
 }
 
+/*ホテル詳細画面でのスライダー画像の高さ*/ 
 .img-show {
   max-height: 300px;
 }
@@ -46,6 +44,7 @@
   font-size: 14px !important;
 }
 
+/*テーブルのヘッダーのフォントサイズ*/
 th {
   font-size: 15px;
 }
