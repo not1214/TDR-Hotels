@@ -13,7 +13,7 @@
       <div class="mt-3">
         <%= render "layouts/area_search", areas: @areas %>
       </div>
-      <div class="mt-3" id="member-map-index"></div>
+      <div class="my-3" id="member-map-index"></div>
         <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=member_map_index"></script>
     </div>
 

@@ -137,6 +137,13 @@ footer {
   height: 400px;
 }
 
+/*見出しののフォントサイズ*/
+@media screen and (max-width:424px) {
+  .head-text {
+    font-size: 21px;
+  }
+}
+
 /*レビュー画面の吹き出し*/
 .balloon {
   position: relative;

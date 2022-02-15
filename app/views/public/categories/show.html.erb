@@ -1,24 +1,27 @@
 <div class="container-fluid">
 
   <div class="row justify-content-center mb-3">
-    <h3 style="border-bottom: 2px solid #FF9933"><%= @category.category_name %>の一覧</h3>
+    <h3 class="head-text text-center" style="border-bottom: 2px solid #FF9933">
+      ジャンル検索結果<br>
+      <<%= @category.category_name %>>
+    </h3>
   </div>
 
   <div class="row justify-content-center">
 
-    <div class="col-md-3 d-flex flex-column">
+    <div class="order-2 order-md-1 col-md-4 col-lg-3 d-flex flex-column">
       <div>
         <%= render "layouts/category_search", categories: @categories %>
       </div>
       <div class="mt-3">
         <%= render "layouts/area_search", areas: @areas %>
       </div>
-      <div class="mt-3" id="member-map-index"></div>
+      <div class="my-3" id="member-map-index"></div>
         <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GOOGLE_MAP_API_KEY"] %>&callback=member_map_index"></script>
     </div>
 
-    <div class="col-md-9">
-      <div class="d-flex flex-wrap">
+    <div class="order-1 order-md-2 col-md-8 col-lg-9">
+      <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
         <% @category_hotel.includes(:area, :category).each do |hotel| %>
         <div class="d-flex flex-column mb-3 mr-md-2 mr-lg-3">
           <div>

@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*ホテル詳細画面にてホテル名のフォントサイズ*/
-@media screen and (max-width:424px) {
-  .hotel-name {
-    font-size: 22px;
-  }
-}
 
 /*ホテル詳細画面でのスライダー*/
 .slider {
