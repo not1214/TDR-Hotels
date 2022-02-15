@@ -1,15 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 text-center">
+    <div class="order-2 order-md-1 col-md-3 text-center">
+      <h5 class="d-md-none text-center text-md-left mb-3"><span style="border-bottom: 2px solid #FF9933">プロフィール</span></h5>
       <%= attachment_image_tag @member, :profile_image, :fill, 150, 125, fallback: "no-image-icon.jpg" %>
       <div><%= @member.username %></div>
       <p class="introduction text-break" style="font-size:10px"><%= @member.introduction %></p>
       <p><%= link_to "編集", edit_mypage_path, class: "btn btn-info", style: "font-size: 10px" %></p>
     </div>
 
-    <div class="col-md-9">
-      <h5 class="mb-3"><span style="border-bottom: 2px solid #FF9933">お気に入りホテル一覧</span></h5>
-      <div class="d-flex flex-wrap">
+    <div class="order-1 order-md-2 col-md-9">
+      <h5 class="text-center text-md-left mb-3"><span style="border-bottom: 2px solid #FF9933">お気に入りホテル一覧</span></h5>
+      <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
         <% @favorite_hotels.each do |hotel| %>
         <div class="d-flex flex-column mb-3 mr-md-2 mr-lg-3">
           <div>
