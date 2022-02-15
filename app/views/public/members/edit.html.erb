@@ -4,57 +4,59 @@
   </div>
 
   <%= form_with model: @member, url: update_mypage_path, local: true do |f| %>
-  <div class="row justify-content-center">
-    <%= f.label :"プロフィール画像", class: "col-md-3 font-weight-bold" %>
-    <%= f.attachment_field :profile_image, class: "col-md-5" %>
+  <div class="row justify-content-md-center">
+    <%= f.label :"プロフィール画像", class: "col-10 offset-1 col-md-3 offset-md-0 font-weight-bold" %>
+    <%= f.attachment_field :profile_image, class: "col-10 offset-2 col-md-5 offset-md-0" %>
   </div>
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"ユーザー名", class: "col-md-3 font-weight-bold" %>
-    <%= f.text_field :username, autocomplete: true, class: "col-md-5 form-control" %>
+  <div class="row justify-content-md-center mt-3">
+    <%= f.label :"ユーザー名", class: "col-10 offset-1 col-md-3 offset-md-0 font-weight-bold" %>
+    <%= f.text_field :username, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @member.errors.include?(:username) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
+      <div class="col-8 offset-2 col-md-5 offset-md-3 text-nowrap" style="color: red;"><%= @member.errors.full_messages_for(:username).first %></div>
     <% end %>
   </div>
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"紹介文", class: "col-md-3 font-weight-bold" %>
-    <%= f.text_area :introduction, autocomplete: true, class: "col-md-5 form-control" %>
+  <div class="row justify-content-md-center mt-3">
+    <%= f.label :"紹介文", class: "col-10 offset-1 col-md-3 offset-md-0 font-weight-bold" %>
+    <%= f.text_area :introduction, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
   </div>
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"氏名", class: "col-md-2 font-weight-bold" %>
-    <%= f.label :"(姓)", class: "col-md-1 font-weight-bold text-right" %>
-    <%= f.text_field :last_name, autocomplete: true, class: "col-md-2 form-control" %>
-    <%= f.label :"(名)", class: "col-md-1 font-weight-bold text-right" %>
-    <%= f.text_field :first_name, autocomplete: true, class: "col-md-2 form-control" %>
+  <div class="row justify-content-md-center mt-3">
+    <%= f.label :"氏名", class: "col-10 offset-1 col-md-2 offset-md-0 font-weight-bold" %>
+    <%= f.label :"(姓)", class: "col-2 offset-1 col-md-1 offset-md-0 font-weight-bold text-md-right" %>
+    <%= f.text_field :last_name, autocomplete: true, class: "col-7 col-md-2 form-control" %>
+    <%= f.label :"(名)", class: "col-2 offset-1 col-md-1 offset-md-0 font-weight-bold text-md-right mt-3 mt-md-0" %>
+    <%= f.text_field :first_name, autocomplete: true, class: "col-7 col-md-2 form-control mt-3 mt-md-0" %>
     <% if @member.errors.include?(:last_name) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name).first %></div>
+      <div class="col-8 offset-3 col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name).first %></div>
     <% end %>
     <% if @member.errors.include?(:first_name) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name).first %></div>
+      <div class="col-8 offset-3 col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name).first %></div>
     <% end %>
   </div>
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"フリガナ", class: "col-md-2 font-weight-bold" %>
-    <%= f.label :"(セイ)", class: "col-md-1 font-weight-bold text-right" %>
-    <%= f.text_field :last_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
-    <%= f.label :"(メイ)", class: "col-md-1 font-weight-bold text-right" %>
-    <%= f.text_field :first_name_kana, autocomplete: true, class: "col-md-2 form-control" %>
+  <div class="row justify-content-md-center mt-3">
+    <%= f.label :"フリガナ", class: "col-10 offset-1 col-md-2 offset-md-0 font-weight-bold" %>
+    <%= f.label :"(セイ)", class: "col-3 col-md-1 font-weight-bold text-right text-nowrap" %>
+    <%= f.text_field :last_name_kana, autocomplete: true, class: "col-7 col-md-2 form-control" %>
+    <%= f.label :"(メイ)", class: "col-3 col-md-1 font-weight-bold text-right text-nowrap mt-3 mt-md-0" %>
+    <%= f.text_field :first_name_kana, autocomplete: true, class: "col-7 col-md-2 form-control mt-3 mt-md-0" %>
     <% if @member.errors.include?(:last_name_kana) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name_kana,).first %></div>
+      <div class="col-8 offset-3 col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:last_name_kana,).first %></div>
     <% end %>
     <% if @member.errors.include?(:first_name_kana) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name_kana).first %></div>
+      <div class="col-8 offset-3 col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:first_name_kana).first %></div>
     <% end %>
   </div>
-  <div class="row justify-content-center mt-3">
-    <%= f.label :"電話番号(ハイフンなし)", class: "col-md-3 font-weight-bold" %>
-    <%= f.text_field :phone_number, autocomplete: true, class: "col-md-5 form-control" %>
+  <div class="row justify-content-md-center mt-3">
+    <%= f.label :"電話番号(ハイフンなし)", class: "col-10 offset-1 col-md-3 offset-md-0 font-weight-bold text-nowrap" %>
+    <%= f.text_field :phone_number, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @member.errors.include?(:phone_number) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @member.errors.full_messages_for(:phone_number).first %></div>
+      <div class="col-8 offset-2 col-md-5 offset-md-3 text-nowrap" style="color: red;"><%= @member.errors.full_messages_for(:phone_number).first %></div>
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <%= f.submit "更新", class: "col-md-1 btn btn-success btn-sm" %>
-    <%= link_to "退会", unsubscribe_member_path, class: "col-md-1 btn btn-danger btn-sm ml-3" %>
+    <div class="col-10 col-md-auto d-md-flex text-center">
+      <div><%= f.submit "更新", class: "col-8 col-md-1 btn btn-success btn-sm" %></div>
+      <div><%= link_to "退会", unsubscribe_member_path, class: "col-8 col-md-1 btn btn-danger btn-sm ml-md-3 my-2 my-md-0" %></div>
+    </div>
   </div>
   <% end %>
 </div>

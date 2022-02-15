@@ -44,8 +44,8 @@
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-10 col-md-auto d-md-flex text-center mx-auto">
+  <div class="row justify-content-center mt-3">
+    <div class="col-10 col-md-auto d-md-flex text-center">
       <div><%= link_to "レビュー閲覧", hotel_reviews_path(@hotel), class: "col-10 col-md-auto btn btn-primary " %></div>
       <div><%= link_to "レビュー投稿", new_hotel_review_path(@hotel), class: "col-10 col-md-auto btn btn-dark ml-md-2 my-2 my-md-0" %></div>
       <div id="favorite_on_hotel_<%= @hotel.id %>">
