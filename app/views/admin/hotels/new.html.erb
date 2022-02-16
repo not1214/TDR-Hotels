@@ -8,56 +8,56 @@
     <%= f.label :"ホテル画像(複数可)", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.attachment_field :hotel_images_images, multiple: true, class: "col-10 offset-2 col-md-5 offset-md-0" %>
     <% if @hotel.errors.include?(:hotel_images) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:hotel_images).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:hotel_images).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"ホテル名", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.text_field :hotel_name, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @hotel.errors.include?(:hotel_name) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:hotel_name).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:hotel_name).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"ホームページ", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.text_field :website, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @hotel.errors.include?(:website) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:website).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3 text-nowrap" style="color: red;"><%= @hotel.errors.full_messages_for(:website).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"カテゴリ", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.collection_select :category_id, Category.all, :id, :category_name, {prompt: "選択してください"}, {class: "col-8 offset-2 col-md-5 offset-md-0 form-control"} %>
     <% if @hotel.errors.include?(:category_id) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:category_id).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:category_id).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"エリア", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.collection_select :area_id, Area.all, :id, :area_name, {prompt: "選択してください"}, {class: "col-8 offset-2 col-md-5 offset-md-0 form-control"} %>
     <% if @hotel.errors.include?(:area_id) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:area_id).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:area_id).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"価格帯", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.text_field :price_range, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @hotel.errors.include?(:price_range) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:price_range).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:price_range).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"特徴", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.text_area :caption, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @hotel.errors.include?(:caption) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:caption).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:caption).first %></div>
     <% end %>
   </div>
   <div class="row mt-2">
     <%= f.label :"住所", class: "col-10 offset-1 col-md-2 offset-md-3 font-weight-bold" %>
     <%= f.text_field :address, autocomplete: true, class: "col-8 offset-2 col-md-5 offset-md-0 form-control" %>
     <% if @hotel.errors.include?(:address) %>
-      <div class="col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:address).first %></div>
+      <div class="col-10 offset-2 col-md-5 offset-md-3" style="color: red;"><%= @hotel.errors.full_messages_for(:address).first %></div>
     <% end %>
   </div>
   <div class="row justify-content-center">
