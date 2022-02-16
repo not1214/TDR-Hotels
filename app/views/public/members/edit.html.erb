@@ -53,9 +53,9 @@
     <% end %>
   </div>
   <div class="row justify-content-center mt-3">
-    <div class="col-10 col-md-auto d-md-flex text-center">
-      <div><%= f.submit "更新", class: "col-8 col-md-1 btn btn-success btn-sm" %></div>
-      <div><%= link_to "退会", unsubscribe_member_path, class: "col-8 col-md-1 btn btn-danger btn-sm ml-md-3 my-2 my-md-0" %></div>
+    <div class="col-8 col-md-6 offset-md-4 d-md-flex text-center">
+      <%= f.submit "更新", class: "col-6 col-md-3 btn btn-success btn-sm" %>
+      <%= link_to "退会", unsubscribe_member_path, class: "col-6 col-md-3 btn btn-danger btn-sm ml-md-3 my-2 my-md-0" %>
     </div>
   </div>
   <% end %>

@@ -3,15 +3,17 @@
     <h2 style="border-bottom: 2px solid #FF9933">会員退会</h2>
   </div>
   <p class="text-center">
-    退会するとレビューの投稿や閲覧ができません。<br>
-    退会する場合は、「退会する」をクリックしてください。
+    退会すると<span style="display:inline-block">レビューの投稿や閲覧ができません。</span><br>
+    退会する場合は、<span style="display:inline-block">「退会する」をクリックしてください。</span>
   </p>
   <p class="text-center">
     本当に退会しますか？
   </p>
   <div class="row justify-content-center">
-    <%= link_to "退会する", withdraw_member_path, method: :patch, class: "btn btn-danger col-md-2" %>
-    <%= link_to "退会しない", mypage_path, class: "btn btn-primary col-md-2 ml-2" %>
+    <div class="col-8 col-md-8 d-md-flex justify-content-center">
+      <%= link_to "退会する", withdraw_member_path, method: :patch, class: "btn btn-danger col-md-4" %>
+      <%= link_to "退会しない", mypage_path, class: "btn btn-primary col-md-4 ml-md-2 my-2 my-md-0" %>
+    </div>
   </div>
 </div>
 
