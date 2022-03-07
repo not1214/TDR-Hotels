@@ -15,7 +15,8 @@ class Public::ReviewCommentsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:review_id])
-    ReviewComment.find_by(id: params[:id]).destroy
+    comment = current_member.review_comments.find_by(id: params[:id])
+    comment.destroy
     flash[:notice] = 'コメントを削除しました。'
   end
 
